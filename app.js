@@ -1,0 +1,887 @@
+const IMAGE_LIBRARY = {
+  rice: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=900&q=80",
+  noodles: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=900&q=80",
+  bread: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80",
+  oats: "https://upload.wikimedia.org/wikipedia/commons/3/39/Oatmeal.jpg",
+  grains: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=900&q=80",
+  roots: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=900&q=80",
+  sweetPotato: "https://upload.wikimedia.org/wikipedia/commons/5/58/Ipomoea_batatas_006.JPG",
+  cassava: "https://upload.wikimedia.org/wikipedia/commons/8/80/Cassava_roots.jpg",
+  plantain: "https://upload.wikimedia.org/wikipedia/commons/5/57/Plantains.jpg",
+  corn: "https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=900&q=80",
+  legumes: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=900&q=80",
+};
+
+const FOODS = [
+  {
+    id: "white-rice",
+    zh: "白飯",
+    en: "White rice, cooked",
+    aliases: ["白米飯", "米飯", "飯", "rice"],
+    category: "米飯",
+    carbs: 28.6,
+    gi: 83,
+    giDisplay: "75-83",
+    speed: "fast",
+    imageKey: "rice",
+    note: "一般熟白米飯；低 GI 特用品種會明顯較低。",
+    carbSource: "USDA FDC 168930",
+    giSource: "Sydney GI: white rice",
+  },
+  {
+    id: "jasmine-rice",
+    zh: "茉莉香米飯",
+    en: "Jasmine rice, cooked",
+    aliases: ["泰國香米", "jasmine", "香米", "白飯"],
+    category: "米飯",
+    carbs: 28.6,
+    gi: 89,
+    giDisplay: "79-109",
+    speed: "fast",
+    imageKey: "rice",
+    note: "茉莉香米多數測試為高 GI；咀嚼與品牌會改變結果。",
+    carbSource: "USDA FDC 168930",
+    giSource: "Sydney GI: jasmine rice",
+  },
+  {
+    id: "basmati-rice",
+    zh: "印度香米飯",
+    en: "Basmati rice, cooked",
+    aliases: ["basmati", "巴斯馬蒂", "香米", "長米"],
+    category: "米飯",
+    carbs: 28.6,
+    gi: 58,
+    giDisplay: "50-67",
+    speed: "medium",
+    imageKey: "rice",
+    note: "白印度香米常落在低到中 GI，快速熟化品種可能較高。",
+    carbSource: "USDA FDC 168930",
+    giSource: "Sydney GI: basmati rice",
+  },
+  {
+    id: "brown-rice",
+    zh: "糙米飯",
+    en: "Brown rice, cooked",
+    aliases: ["brown rice", "全穀米", "糙米"],
+    category: "米飯",
+    carbs: 25.6,
+    gi: 66,
+    giDisplay: "58-72",
+    speed: "medium",
+    imageKey: "rice",
+    note: "品種差異很大；有些即食或特定品種可到高 GI。",
+    carbSource: "USDA FDC / SR Legacy",
+    giSource: "Sydney GI: brown rice",
+  },
+  {
+    id: "glutinous-rice",
+    zh: "糯米飯",
+    en: "Glutinous rice, cooked",
+    aliases: ["sticky rice", "糯米", "油飯", "粽子"],
+    category: "米飯",
+    carbs: 21.1,
+    gi: 94,
+    giDisplay: "92-98",
+    speed: "fast",
+    imageKey: "rice",
+    note: "低直鏈澱粉的糯米通常升糖很快。",
+    carbSource: "USDA FDC 169711",
+    giSource: "Sydney GI: glutinous rice",
+  },
+  {
+    id: "rice-porridge",
+    zh: "白粥",
+    en: "Rice porridge / congee",
+    aliases: ["稀飯", "congee", "rice porridge", "粥"],
+    category: "米飯",
+    carbs: 11.5,
+    gi: 69,
+    giDisplay: "66-88",
+    speed: "medium",
+    imageKey: "rice",
+    note: "水分多讓每 100g 碳水較低，但不少白米粥 GI 仍偏中高。",
+    carbSource: "USDA FDC 173914",
+    giSource: "Sydney GI: rice porridge",
+  },
+  {
+    id: "wild-rice",
+    zh: "野米飯",
+    en: "Wild rice, cooked",
+    aliases: ["wild rice", "加拿大野米"],
+    category: "米飯",
+    carbs: 21.3,
+    gi: 58,
+    giDisplay: "58",
+    speed: "medium",
+    imageKey: "rice",
+    note: "口感完整，常作為低到中 GI 米飯替代。",
+    carbSource: "USDA FDC 168897",
+    giSource: "Sydney GI: Saskatchewan wild rice",
+  },
+  {
+    id: "spaghetti",
+    zh: "義大利麵",
+    en: "Spaghetti, cooked",
+    aliases: ["pasta", "spaghetti", "義麵", "義大利麵條"],
+    category: "麵 / 粉",
+    carbs: 30.9,
+    gi: 44,
+    giDisplay: "33-45",
+    speed: "slow",
+    imageKey: "noodles",
+    note: "白義大利麵煮到有咬感時 GI 通常較低。",
+    carbSource: "USDA FDC 168934",
+    giSource: "Sydney GI: spaghetti",
+  },
+  {
+    id: "macaroni",
+    zh: "通心粉",
+    en: "Macaroni / short pasta",
+    aliases: ["macaroni", "penne", "短管麵", "pasta"],
+    category: "麵 / 粉",
+    carbs: 30.9,
+    gi: 63,
+    giDisplay: "44-63",
+    speed: "medium",
+    imageKey: "noodles",
+    note: "短麵形、烹煮時間與冷卻會影響 GI。",
+    carbSource: "USDA FDC 168934",
+    giSource: "Sydney GI: macaroni / penne",
+  },
+  {
+    id: "egg-noodles",
+    zh: "雞蛋麵",
+    en: "Egg noodles, cooked",
+    aliases: ["蛋麵", "noodles", "egg noodles", "黃麵"],
+    category: "麵 / 粉",
+    carbs: 25.2,
+    gi: 58,
+    giDisplay: "58",
+    speed: "medium",
+    imageKey: "noodles",
+    note: "以 Hokkien noodles 測試值作為中式熟麵參考。",
+    carbSource: "USDA FDC 169732",
+    giSource: "Sydney GI: Hokkien noodles",
+  },
+  {
+    id: "udon",
+    zh: "烏龍麵",
+    en: "Udon noodles, cooked",
+    aliases: ["udon", "烏冬", "うどん"],
+    category: "麵 / 粉",
+    carbs: 21.4,
+    gi: 57,
+    giDisplay: "57-62",
+    speed: "medium",
+    imageKey: "noodles",
+    note: "不同日本麵條含水量不同；以熟烏龍麵 GI 測試值標示。",
+    carbSource: "USDA FDC / Japanese noodles",
+    giSource: "Sydney GI: udon noodles",
+  },
+  {
+    id: "soba",
+    zh: "蕎麥麵",
+    en: "Soba noodles, cooked",
+    aliases: ["soba", "蕎麥", "buckwheat noodles"],
+    category: "麵 / 粉",
+    carbs: 21.4,
+    gi: 46,
+    giDisplay: "46-59",
+    speed: "slow",
+    imageKey: "noodles",
+    note: "純蕎麥比例越高，通常越有利於降低升糖速度。",
+    carbSource: "USDA FDC 168907",
+    giSource: "Sydney GI: soba / buckwheat noodles",
+  },
+  {
+    id: "somen",
+    zh: "麵線 / 素麵",
+    en: "Somen noodles, cooked",
+    aliases: ["麵線", "somen", "細麵", "thin noodles"],
+    category: "麵 / 粉",
+    carbs: 27.5,
+    gi: 62,
+    giDisplay: "62",
+    speed: "medium",
+    imageKey: "noodles",
+    note: "細白麵條熟後水分高；GI 以相近日本白麵條參考。",
+    carbSource: "USDA FDC 168909",
+    giSource: "Sydney GI: udon/plain noodles",
+  },
+  {
+    id: "rice-noodles",
+    zh: "米粉 / 河粉",
+    en: "Rice noodles, cooked",
+    aliases: ["米粉", "河粉", "粿條", "beehoon", "rice vermicelli", "rice noodles"],
+    category: "麵 / 粉",
+    carbs: 24.0,
+    gi: 56,
+    giDisplay: "35-61",
+    speed: "medium",
+    imageKey: "noodles",
+    note: "新鮮、乾燥、扁麵與細粉差異大。",
+    carbSource: "USDA FDC 168914",
+    giSource: "Sydney GI: rice noodles / vermicelli",
+  },
+  {
+    id: "glass-noodles",
+    zh: "冬粉 / 粉絲",
+    en: "Mung bean glass noodles, cooked",
+    aliases: ["冬粉", "粉絲", "glass noodles", "cellophane noodles", "bean thread"],
+    category: "麵 / 粉",
+    carbs: 20.7,
+    gi: 39,
+    giDisplay: "20-45",
+    speed: "slow",
+    imageKey: "noodles",
+    note: "真正綠豆澱粉冬粉 GI 低；仿製粉條可能較高。",
+    carbSource: "USDA FDC 2708355",
+    giSource: "Sydney GI: mung bean noodles",
+  },
+  {
+    id: "instant-noodles",
+    zh: "泡麵",
+    en: "Instant noodles, prepared",
+    aliases: ["速食麵", "instant noodles", "ramen", "方便麵"],
+    category: "麵 / 粉",
+    carbs: 26.0,
+    gi: 52,
+    giDisplay: "48-52",
+    speed: "slow",
+    imageKey: "noodles",
+    note: "GI 不一定高，但鈉與油脂通常較高。",
+    carbSource: "USDA / prepared noodles",
+    giSource: "Sydney GI: instant noodles",
+  },
+  {
+    id: "white-bread",
+    zh: "白吐司",
+    en: "White bread",
+    aliases: ["白麵包", "toast", "吐司", "white bread"],
+    category: "麵包",
+    carbs: 49.4,
+    gi: 75,
+    giDisplay: "70-75",
+    speed: "fast",
+    imageKey: "bread",
+    note: "精製白麵包通常升糖較快。",
+    carbSource: "USDA FDC 174924",
+    giSource: "Sydney GI / Inquis: white bread",
+  },
+  {
+    id: "whole-wheat-bread",
+    zh: "全麥吐司",
+    en: "Whole wheat bread",
+    aliases: ["全麥麵包", "whole wheat", "wholemeal", "全麥"],
+    category: "麵包",
+    carbs: 42.7,
+    gi: 65,
+    giDisplay: "61-73",
+    speed: "medium",
+    imageKey: "bread",
+    note: "細磨全麥仍可能中到高 GI；看是否有完整穀粒與纖維。",
+    carbSource: "USDA FDC 172688",
+    giSource: "Sydney GI: wholemeal bread",
+  },
+  {
+    id: "sourdough",
+    zh: "酸種麵包",
+    en: "Sourdough bread",
+    aliases: ["sourdough", "酸麵包", "歐包"],
+    category: "麵包",
+    carbs: 49.4,
+    gi: 54,
+    giDisplay: "52-54",
+    speed: "slow",
+    imageKey: "bread",
+    note: "發酵與配方可能降低 GI，但不同產品差異很大。",
+    carbSource: "USDA FDC 174924",
+    giSource: "Sydney GI: sourdough bread",
+  },
+  {
+    id: "bagel",
+    zh: "貝果",
+    en: "Bagel",
+    aliases: ["bagel", "貝果麵包"],
+    category: "麵包",
+    carbs: 53.0,
+    gi: 73,
+    giDisplay: "61-77",
+    speed: "fast",
+    imageKey: "bread",
+    note: "份量常比吐司大；查詢值是每 100g。",
+    carbSource: "USDA FDC 174901",
+    giSource: "Sydney GI: bagel",
+  },
+  {
+    id: "pita",
+    zh: "白口袋餅",
+    en: "White pita bread",
+    aliases: ["pita", "口袋餅", "皮塔餅"],
+    category: "麵包",
+    carbs: 55.7,
+    gi: 68,
+    giDisplay: "68",
+    speed: "medium",
+    imageKey: "bread",
+    note: "全麥口袋餅常略低，白口袋餅偏中 GI。",
+    carbSource: "USDA FDC 174915",
+    giSource: "Sydney GI: pita bread",
+  },
+  {
+    id: "corn-tortilla",
+    zh: "玉米餅皮",
+    en: "Corn tortilla",
+    aliases: ["tortilla", "玉米餅", "墨西哥餅"],
+    category: "麵包",
+    carbs: 44.6,
+    gi: 52,
+    giDisplay: "49-60",
+    speed: "slow",
+    imageKey: "corn",
+    note: "尼克斯塔馬爾化玉米餅多為低到中 GI。",
+    carbSource: "USDA FDC 175036",
+    giSource: "Sydney GI: corn tortilla",
+  },
+  {
+    id: "rolled-oats",
+    zh: "傳統燕麥粥",
+    en: "Rolled oat porridge",
+    aliases: ["燕麥", "oats", "oatmeal", "rolled oats", "porridge"],
+    category: "穀物",
+    carbs: 12.0,
+    gi: 57,
+    giDisplay: "51-57",
+    speed: "medium",
+    imageKey: "oats",
+    note: "厚片燕麥通常較慢；煮熟後含水量讓每 100g 碳水下降。",
+    carbSource: "USDA FDC / cooked oats",
+    giSource: "Sydney GI: rolled oat porridge",
+  },
+  {
+    id: "instant-oats",
+    zh: "即食燕麥粥",
+    en: "Instant oat porridge",
+    aliases: ["即食燕麥", "instant oats", "quick oats", "oatmeal"],
+    category: "穀物",
+    carbs: 11.4,
+    gi: 82,
+    giDisplay: "82-87",
+    speed: "fast",
+    imageKey: "oats",
+    note: "加工較細、熟化較快的燕麥測試值可達高 GI。",
+    carbSource: "USDA FDC / cooked oats",
+    giSource: "Sydney GI: instant oat porridge",
+  },
+  {
+    id: "barley",
+    zh: "珍珠大麥",
+    en: "Pearled barley, cooked",
+    aliases: ["大麥", "barley", "pearl barley", "薏仁替代"],
+    category: "穀物",
+    carbs: 28.2,
+    gi: 44,
+    giDisplay: "39-44",
+    speed: "slow",
+    imageKey: "grains",
+    note: "富含可溶性纖維，通常是慢升糖主食選項。",
+    carbSource: "USDA FDC 170285",
+    giSource: "Sydney GI: pearl barley porridge",
+  },
+  {
+    id: "quinoa",
+    zh: "藜麥",
+    en: "Quinoa, cooked",
+    aliases: ["quinoa", "藜麥飯", "藜麥米"],
+    category: "穀物",
+    carbs: 21.3,
+    gi: 53,
+    giDisplay: "50-54",
+    speed: "slow",
+    imageKey: "grains",
+    note: "熟藜麥為低 GI 邊緣，蛋白質與纖維較白飯高。",
+    carbSource: "USDA FDC 168917",
+    giSource: "Sydney GI: quinoa",
+  },
+  {
+    id: "couscous",
+    zh: "古斯米",
+    en: "Couscous, cooked",
+    aliases: ["couscous", "庫斯庫斯", "蒸粗麥粉"],
+    category: "穀物",
+    carbs: 23.2,
+    gi: 65,
+    giDisplay: "62-70",
+    speed: "medium",
+    imageKey: "grains",
+    note: "一般古斯米偏中 GI；珍珠或全麥品項可能較低。",
+    carbSource: "USDA FDC 169700",
+    giSource: "Sydney GI: couscous",
+  },
+  {
+    id: "bulgur",
+    zh: "布格麥",
+    en: "Bulgur, cooked",
+    aliases: ["bulgur", "bulgur wheat", "碎小麥"],
+    category: "穀物",
+    carbs: 18.6,
+    gi: 47,
+    giDisplay: "46-53",
+    speed: "slow",
+    imageKey: "grains",
+    note: "熟布格麥保留顆粒結構，通常低 GI。",
+    carbSource: "USDA FDC 170287",
+    giSource: "Sydney GI: bulgur",
+  },
+  {
+    id: "buckwheat-groats",
+    zh: "蕎麥粒",
+    en: "Buckwheat groats, cooked",
+    aliases: ["buckwheat", "蕎麥飯", "kasha"],
+    category: "穀物",
+    carbs: 19.9,
+    gi: 59,
+    giDisplay: "59",
+    speed: "medium",
+    imageKey: "grains",
+    note: "以蕎麥麵測試值作為參考；整粒蕎麥常作為飯類替代。",
+    carbSource: "USDA FDC 170686",
+    giSource: "Sydney GI: buckwheat noodles",
+  },
+  {
+    id: "millet",
+    zh: "小米飯",
+    en: "Millet, cooked",
+    aliases: ["millet", "小米", "小米粥"],
+    category: "穀物",
+    carbs: 23.7,
+    gi: 64,
+    giDisplay: "64",
+    speed: "medium",
+    imageKey: "grains",
+    note: "小米飯可為中 GI；稀粥或糊化程度高時可能更快。",
+    carbSource: "USDA FDC 168871",
+    giSource: "Sydney GI: foxtail millet cooked",
+  },
+  {
+    id: "millet-porridge",
+    zh: "小米粥",
+    en: "Millet porridge",
+    aliases: ["小米糊", "millet porridge", "小米"],
+    category: "穀物",
+    carbs: 12.0,
+    gi: 94,
+    giDisplay: "94",
+    speed: "fast",
+    imageKey: "oats",
+    note: "長時間煮成粥後澱粉更易消化，GI 可高於小米飯。",
+    carbSource: "USDA / cooked millet estimate",
+    giSource: "Sydney GI: foxtail millet porridge",
+  },
+  {
+    id: "sweet-corn",
+    zh: "熟甜玉米",
+    en: "Sweet corn, cooked",
+    aliases: ["玉米", "corn", "sweet corn"],
+    category: "玉米 / 其他",
+    carbs: 21.0,
+    gi: 52,
+    giDisplay: "52",
+    speed: "slow",
+    imageKey: "corn",
+    note: "整粒甜玉米通常比玉米粉糊更慢。",
+    carbSource: "USDA FDC 169999",
+    giSource: "Common GI tables / Sydney-linked references",
+  },
+  {
+    id: "cornmeal-porridge",
+    zh: "玉米糊",
+    en: "Cornmeal porridge / polenta",
+    aliases: ["polenta", "cornmeal", "玉米粉", "玉米粥"],
+    category: "玉米 / 其他",
+    carbs: 18.0,
+    gi: 68,
+    giDisplay: "68-69",
+    speed: "medium",
+    imageKey: "corn",
+    note: "研磨後再煮成糊，通常比整粒玉米更快。",
+    carbSource: "USDA / cooked cornmeal estimate",
+    giSource: "Sydney GI: cornmeal porridge",
+  },
+  {
+    id: "boiled-potato",
+    zh: "水煮馬鈴薯",
+    en: "Boiled potato",
+    aliases: ["馬鈴薯", "土豆", "potato", "boiled potato"],
+    category: "根莖",
+    carbs: 20.1,
+    gi: 82,
+    giDisplay: "70-94",
+    speed: "fast",
+    imageKey: "roots",
+    note: "品種與是否冷卻差異很大；一般水煮馬鈴薯多偏高 GI。",
+    carbSource: "USDA FoodData Central",
+    giSource: "Sydney GI: boiled potato varieties",
+  },
+  {
+    id: "baked-potato",
+    zh: "烤馬鈴薯",
+    en: "Baked potato",
+    aliases: ["baked potato", "烤土豆", "烤薯"],
+    category: "根莖",
+    carbs: 21.4,
+    gi: 93,
+    giDisplay: "93",
+    speed: "fast",
+    imageKey: "roots",
+    note: "乾熱烘烤常讓每 100g 碳水與 GI 都偏高。",
+    carbSource: "USDA FoodData Central",
+    giSource: "Sydney GI: baked potato",
+  },
+  {
+    id: "boiled-sweet-potato",
+    zh: "水煮地瓜",
+    en: "Boiled sweet potato",
+    aliases: ["地瓜", "番薯", "sweet potato", "yam"],
+    category: "根莖",
+    carbs: 17.7,
+    gi: 48,
+    giDisplay: "41-49",
+    speed: "slow",
+    imageKey: "sweetPotato",
+    note: "水煮地瓜多為低 GI；和烤地瓜差異很大。",
+    carbSource: "USDA FDC 168484",
+    giSource: "Sydney GI: boiled sweet potato",
+  },
+  {
+    id: "baked-sweet-potato",
+    zh: "烤地瓜",
+    en: "Baked sweet potato",
+    aliases: ["烤番薯", "烤地瓜", "sweet potato"],
+    category: "根莖",
+    carbs: 20.7,
+    gi: 87,
+    giDisplay: "82-94",
+    speed: "fast",
+    imageKey: "sweetPotato",
+    note: "同樣是地瓜，烘烤測試值常到高 GI。",
+    carbSource: "USDA FDC 168483",
+    giSource: "Sydney GI: baked sweet potato",
+  },
+  {
+    id: "taro",
+    zh: "蒸芋頭",
+    en: "Taro, cooked",
+    aliases: ["芋頭", "taro", "芋仔"],
+    category: "根莖",
+    carbs: 34.6,
+    gi: 49,
+    giDisplay: "48-54",
+    speed: "slow",
+    imageKey: "roots",
+    note: "台灣蒸芋頭測試為低 GI，但每 100g 碳水較高。",
+    carbSource: "USDA / SR Legacy taro",
+    giSource: "Sydney GI: Taiwan taro",
+  },
+  {
+    id: "cassava",
+    zh: "水煮木薯",
+    en: "Cassava, boiled",
+    aliases: ["木薯", "樹薯", "cassava", "tapioca"],
+    category: "根莖",
+    carbs: 38.1,
+    gi: 46,
+    giDisplay: "46",
+    speed: "slow",
+    imageKey: "cassava",
+    note: "水煮木薯可為低 GI；木薯粉或粉圓類會不同。",
+    carbSource: "USDA FoodData Central",
+    giSource: "Sydney GI: boiled cassava",
+  },
+  {
+    id: "green-plantain",
+    zh: "水煮青蕉",
+    en: "Green plantain, boiled",
+    aliases: ["plantain", "大蕉", "青蕉", "料理香蕉"],
+    category: "根莖",
+    carbs: 29.1,
+    gi: 39,
+    giDisplay: "39",
+    speed: "slow",
+    imageKey: "plantain",
+    note: "青蕉澱粉較多、糖較少；熟成大蕉 GI 會升高。",
+    carbSource: "USDA FDC 168216",
+    giSource: "Sydney GI: green plantain",
+  },
+  {
+    id: "chickpeas",
+    zh: "熟鷹嘴豆",
+    en: "Chickpeas, cooked",
+    aliases: ["鷹嘴豆", "garbanzo", "chickpeas"],
+    category: "豆類",
+    carbs: 27.4,
+    gi: 38,
+    giDisplay: "35-38",
+    speed: "slow",
+    imageKey: "legumes",
+    note: "豆類通常升糖慢，但也要把碳水算進總份量。",
+    carbSource: "USDA FoodData Central",
+    giSource: "Sydney GI: chickpeas",
+  },
+  {
+    id: "lentils",
+    zh: "熟扁豆",
+    en: "Lentils, cooked",
+    aliases: ["扁豆", "lentils", "小扁豆"],
+    category: "豆類",
+    carbs: 20.1,
+    gi: 42,
+    giDisplay: "29-42",
+    speed: "slow",
+    imageKey: "legumes",
+    note: "低 GI，高纖維與蛋白質，是常見主食替代。",
+    carbSource: "USDA FoodData Central",
+    giSource: "Sydney GI: lentils",
+  },
+  {
+    id: "black-beans",
+    zh: "熟黑豆",
+    en: "Black beans, cooked",
+    aliases: ["黑豆", "black beans"],
+    category: "豆類",
+    carbs: 23.7,
+    gi: 31,
+    giDisplay: "31",
+    speed: "slow",
+    imageKey: "legumes",
+    note: "低 GI；適合和白飯混搭降低整餐升糖負擔。",
+    carbSource: "USDA FoodData Central",
+    giSource: "Sydney GI: black beans",
+  },
+  {
+    id: "kidney-beans",
+    zh: "熟紅腰豆",
+    en: "Kidney beans, cooked",
+    aliases: ["紅腰豆", "kidney beans", "red beans"],
+    category: "豆類",
+    carbs: 22.8,
+    gi: 29,
+    giDisplay: "23-43",
+    speed: "slow",
+    imageKey: "legumes",
+    note: "熟豆類普遍低 GI；罐頭與加糖料理需另看配方。",
+    carbSource: "USDA FoodData Central",
+    giSource: "Sydney GI: kidney beans",
+  },
+];
+
+const SPEED_META = {
+  slow: { text: "慢", detail: "低 GI", className: "slow" },
+  medium: { text: "中", detail: "中 GI", className: "medium" },
+  fast: { text: "快", detail: "高 GI", className: "fast" },
+};
+
+const state = {
+  query: "",
+  category: "全部",
+  speed: "all",
+  view: "cards",
+  sort: "name",
+};
+
+const els = {
+  search: document.querySelector("#searchInput"),
+  category: document.querySelector("#categoryFilter"),
+  sort: document.querySelector("#sortSelect"),
+  cards: document.querySelector("#cards"),
+  tableWrap: document.querySelector("#tableWrap"),
+  table: document.querySelector("#foodTable"),
+  empty: document.querySelector("#emptyState"),
+  resultCount: document.querySelector("#resultCount"),
+  avgCarbs: document.querySelector("#avgCarbs"),
+  fastCount: document.querySelector("#fastCount"),
+  speedTabs: document.querySelectorAll(".speed-tab"),
+  viewTabs: document.querySelectorAll(".view-tab"),
+};
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function normalize(value) {
+  return String(value).trim().toLowerCase();
+}
+
+function speedRank(speed) {
+  return { slow: 1, medium: 2, fast: 3 }[speed] || 0;
+}
+
+function getSearchText(food) {
+  return normalize([
+    food.zh,
+    food.en,
+    food.category,
+    food.note,
+    food.giDisplay,
+    SPEED_META[food.speed].text,
+    SPEED_META[food.speed].detail,
+    ...food.aliases,
+  ].join(" "));
+}
+
+function getFilteredFoods() {
+  const query = normalize(state.query);
+  return FOODS
+    .filter((food) => {
+      const matchesQuery = !query || getSearchText(food).includes(query);
+      const matchesCategory = state.category === "全部" || food.category === state.category;
+      const matchesSpeed = state.speed === "all" || food.speed === state.speed;
+      return matchesQuery && matchesCategory && matchesSpeed;
+    })
+    .sort((a, b) => {
+      if (state.sort === "carbsDesc") return b.carbs - a.carbs || a.zh.localeCompare(b.zh, "zh-Hant");
+      if (state.sort === "carbsAsc") return a.carbs - b.carbs || a.zh.localeCompare(b.zh, "zh-Hant");
+      if (state.sort === "giDesc") return b.gi - a.gi || b.carbs - a.carbs;
+      if (state.sort === "giAsc") return a.gi - b.gi || a.carbs - b.carbs;
+      return a.zh.localeCompare(b.zh, "zh-Hant");
+    });
+}
+
+function renderCategoryOptions() {
+  const categories = ["全部", ...new Set(FOODS.map((food) => food.category))];
+  els.category.innerHTML = categories
+    .map((category) => `<option value="${escapeHtml(category)}">${escapeHtml(category)}</option>`)
+    .join("");
+}
+
+function renderSummary(foods) {
+  els.resultCount.textContent = foods.length;
+  els.avgCarbs.textContent = foods.length
+    ? (foods.reduce((sum, food) => sum + food.carbs, 0) / foods.length).toFixed(1)
+    : "0";
+  els.fastCount.textContent = foods.filter((food) => food.speed === "fast").length;
+}
+
+function renderCards(foods) {
+  els.cards.innerHTML = foods.map((food) => {
+    const speed = SPEED_META[food.speed];
+    const meterWidth = Math.min(Math.max(food.gi, 10), 110);
+    const image = IMAGE_LIBRARY[food.imageKey] || IMAGE_LIBRARY.grains;
+    return `
+      <article class="food-card">
+        <div class="card-image">
+          <img src="${image}" alt="${escapeHtml(food.zh)}" loading="lazy">
+          <div class="tag-row">
+            <span class="pill ${speed.className}">${speed.text} · ${speed.detail}</span>
+            <span class="pill">GI ${escapeHtml(food.giDisplay)}</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">
+            <h2>${escapeHtml(food.zh)}</h2>
+            <p>${escapeHtml(food.en)}</p>
+          </div>
+          <div class="macro-grid">
+            <div class="metric">
+              <strong>${food.carbs.toFixed(1)}</strong>
+              <span>g 碳水 / 100g</span>
+            </div>
+            <div class="metric">
+              <strong>${escapeHtml(food.giDisplay)}</strong>
+              <span>GI 參考值</span>
+            </div>
+          </div>
+          <div class="speed-meter" aria-label="GI meter">
+            <div class="meter-track">
+              <div class="meter-fill" style="--width: ${meterWidth}%"></div>
+            </div>
+          </div>
+          <p class="note">${escapeHtml(food.note)}</p>
+          <div class="source-line">
+            <span>${escapeHtml(food.carbSource)}</span>
+            <span>${escapeHtml(food.giSource)}</span>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+function renderTable(foods) {
+  els.table.innerHTML = foods.map((food) => {
+    const speed = SPEED_META[food.speed];
+    return `
+      <tr>
+        <td class="food-name-cell">
+          <strong>${escapeHtml(food.zh)}</strong>
+          <span>${escapeHtml(food.en)}</span>
+        </td>
+        <td>${escapeHtml(food.category)}</td>
+        <td>${food.carbs.toFixed(1)} g</td>
+        <td>${escapeHtml(food.giDisplay)}</td>
+        <td><span class="speed-label ${speed.className}">${speed.text}</span></td>
+        <td>${escapeHtml(food.note)}</td>
+      </tr>
+    `;
+  }).join("");
+}
+
+function render() {
+  const foods = getFilteredFoods();
+  renderSummary(foods);
+  renderCards(foods);
+  renderTable(foods);
+  els.empty.classList.toggle("hidden", foods.length > 0);
+  els.cards.classList.toggle("hidden", state.view !== "cards" || foods.length === 0);
+  els.tableWrap.classList.toggle("hidden", state.view !== "table" || foods.length === 0);
+}
+
+function setActiveButtons(buttons, attr, value) {
+  buttons.forEach((button) => {
+    button.classList.toggle("active", button.dataset[attr] === value);
+  });
+}
+
+function bindEvents() {
+  ["input", "search", "change"].forEach((eventName) => {
+    els.search.addEventListener(eventName, (event) => {
+      state.query = event.target.value;
+      render();
+    });
+  });
+
+  els.category.addEventListener("change", (event) => {
+    state.category = event.target.value;
+    render();
+  });
+
+  els.sort.addEventListener("change", (event) => {
+    state.sort = event.target.value;
+    render();
+  });
+
+  els.speedTabs.forEach((button) => {
+    button.addEventListener("click", () => {
+      state.speed = button.dataset.speed;
+      setActiveButtons(els.speedTabs, "speed", state.speed);
+      render();
+    });
+  });
+
+  els.viewTabs.forEach((button) => {
+    button.addEventListener("click", () => {
+      state.view = button.dataset.view;
+      setActiveButtons(els.viewTabs, "view", state.view);
+      render();
+    });
+  });
+}
+
+renderCategoryOptions();
+bindEvents();
+render();

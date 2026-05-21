@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="常見主食每 100 克碳水與升糖速度查詢圖卡"
+    />
+    <title>主食碳水與升糖速度查詢</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="top-panel" aria-labelledby="pageTitle">
+        <div class="title-block">
+          <p class="eyebrow">Carb / GI Lookup</p>
+          <h1 id="pageTitle">主食碳水與升糖速度查詢</h1>
+          <p class="meta-line">每 100g 熟食或可直接食用重量 · 更新 2026-05-21</p>
+        </div>
+
+        <div class="controls" aria-label="查詢控制">
+          <label class="search-box">
+            <span>關鍵字</span>
+            <input
+              id="searchInput"
+              type="search"
+              inputmode="search"
+              autocomplete="off"
+              placeholder="白飯、地瓜、pasta、oats..."
+            />
+          </label>
+
+          <label class="select-box">
+            <span>分類</span>
+            <select id="categoryFilter"></select>
+          </label>
+
+          <label class="select-box">
+            <span>排序</span>
+            <select id="sortSelect">
+              <option value="name">名稱</option>
+              <option value="carbsDesc">碳水高到低</option>
+              <option value="carbsAsc">碳水低到高</option>
+              <option value="giDesc">GI 高到低</option>
+              <option value="giAsc">GI 低到高</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="speed-tabs" aria-label="升糖速度篩選">
+          <button class="speed-tab active" type="button" data-speed="all">全部</button>
+          <button class="speed-tab" type="button" data-speed="slow">慢</button>
+          <button class="speed-tab" type="button" data-speed="medium">中</button>
+          <button class="speed-tab" type="button" data-speed="fast">快</button>
+        </div>
+
+        <div class="view-tabs" aria-label="檢視模式">
+          <button class="view-tab active" type="button" data-view="cards">圖卡</button>
+          <button class="view-tab" type="button" data-view="table">表格</button>
+        </div>
+      </section>
+
+      <section class="summary-bar" aria-label="查詢摘要">
+        <div>
+          <span id="resultCount" class="summary-number">0</span>
+          <span class="summary-label">項主食</span>
+        </div>
+        <div>
+          <span id="avgCarbs" class="summary-number">0</span>
+          <span class="summary-label">平均碳水 g/100g</span>
+        </div>
+        <div>
+          <span id="fastCount" class="summary-number">0</span>
+          <span class="summary-label">快升糖項目</span>
+        </div>
+      </section>
+
+      <section id="cards" class="cards" aria-live="polite"></section>
+
+      <section id="tableWrap" class="table-wrap hidden" aria-live="polite">
+        <table>
+          <thead>
+            <tr>
+              <th>食物</th>
+              <th>分類</th>
+              <th>每 100g 碳水</th>
+              <th>GI</th>
+              <th>升糖速度</th>
+              <th>備註</th>
+            </tr>
+          </thead>
+          <tbody id="foodTable"></tbody>
+        </table>
+      </section>
+
+      <p id="emptyState" class="empty-state hidden">找不到符合條件的主食。</p>
+
+      <footer class="site-footer">
+        <div>
+          <strong>資料來源</strong>
+          <a href="https://fdc.nal.usda.gov/api-guide/" target="_blank" rel="noreferrer">USDA FoodData Central</a>
+          <a href="https://glycemicindex.com/gi-search/" target="_blank" rel="noreferrer">University of Sydney GI Database</a>
+          <a href="https://glycemicindex.com/2020/12/your-gi-shopping-guide-2/" target="_blank" rel="noreferrer">GI rice guide</a>
+        </div>
+        <p>
+          GI 低為 55 以下、中為 56-69、高為 70 以上。實際血糖反應會受份量、烹調、冷卻、搭配食物與個人狀態影響。
+        </p>
+      </footer>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
