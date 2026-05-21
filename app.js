@@ -1,17 +1,3 @@
-const IMAGE_LIBRARY = {
-  rice: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=900&q=80",
-  noodles: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=900&q=80",
-  bread: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80",
-  oats: "https://upload.wikimedia.org/wikipedia/commons/3/39/Oatmeal.jpg",
-  grains: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=900&q=80",
-  roots: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=900&q=80",
-  sweetPotato: "https://upload.wikimedia.org/wikipedia/commons/5/58/Ipomoea_batatas_006.JPG",
-  cassava: "https://upload.wikimedia.org/wikipedia/commons/8/80/Cassava_roots.jpg",
-  plantain: "https://upload.wikimedia.org/wikipedia/commons/5/57/Plantains.jpg",
-  corn: "https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=900&q=80",
-  legumes: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=900&q=80",
-};
-
 const FOODS = [
   {
     id: "white-rice",
@@ -770,37 +756,27 @@ function renderSummary(foods) {
 function renderCards(foods) {
   els.cards.innerHTML = foods.map((food) => {
     const speed = SPEED_META[food.speed];
-    const meterWidth = Math.min(Math.max(food.gi, 10), 110);
-    const image = IMAGE_LIBRARY[food.imageKey] || IMAGE_LIBRARY.grains;
     return `
       <article class="food-card">
-        <div class="card-image">
-          <img src="${image}" alt="${escapeHtml(food.zh)}" loading="lazy">
-          <div class="tag-row">
-            <span class="pill ${speed.className}">${speed.text} · ${speed.detail}</span>
-            <span class="pill">GI ${escapeHtml(food.giDisplay)}</span>
-          </div>
-        </div>
-        <div class="card-body">
+        <div class="card-head">
           <div class="card-title">
             <h2>${escapeHtml(food.zh)}</h2>
             <p>${escapeHtml(food.en)}</p>
           </div>
+          <span class="speed-label ${speed.className}">${speed.text}</span>
+        </div>
+        <div class="card-body">
           <div class="macro-grid">
             <div class="metric">
               <strong>${food.carbs.toFixed(1)}</strong>
-              <span>g 碳水 / 100g</span>
+              <span>碳水 g/100g</span>
             </div>
             <div class="metric">
               <strong>${escapeHtml(food.giDisplay)}</strong>
-              <span>GI 參考值</span>
+              <span>GI 參考</span>
             </div>
           </div>
-          <div class="speed-meter" aria-label="GI meter">
-            <div class="meter-track">
-              <div class="meter-fill" style="--width: ${meterWidth}%"></div>
-            </div>
-          </div>
+          <p class="speed-text">${speed.detail} · 升糖${speed.text}</p>
           <p class="note">${escapeHtml(food.note)}</p>
           <div class="source-line">
             <span>${escapeHtml(food.carbSource)}</span>
