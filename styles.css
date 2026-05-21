@@ -268,6 +268,34 @@ h1 {
   font-size: 0.88rem;
 }
 
+.experience-note {
+  display: grid;
+  gap: 6px;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.experience-note textarea {
+  width: 100%;
+  min-height: 66px;
+  resize: vertical;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fbfcfb;
+  color: var(--text);
+  outline: none;
+  padding: 10px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.experience-note textarea:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(15, 114, 130, 0.14);
+}
+
 .source-line {
   display: flex;
   flex-wrap: wrap;
@@ -353,6 +381,11 @@ tbody tr:last-child td {
   margin-top: 4px;
   color: var(--muted);
   font-size: 0.8rem;
+}
+
+.experience-cell {
+  color: var(--text);
+  white-space: pre-wrap;
 }
 
 .empty-state {

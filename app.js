@@ -667,6 +667,10 @@ const SPEED_META = {
   fast: { text: "快", detail: "高 GI", className: "fast" },
 };
 
+const EXPERIENCE_STORAGE_KEY = "staple-carb-gi-experience-v1";
+
+let experienceNotes = loadExperienceNotes();
+
 const state = {
   query: "",
   category: "全部",
@@ -703,8 +707,31 @@ function normalize(value) {
   return String(value).trim().toLowerCase();
 }
 
-function speedRank(speed) {
-  return { slow: 1, medium: 2, fast: 3 }[speed] || 0;
+function loadExperienceNotes() {
+  try {
+    return JSON.parse(localStorage.getItem(EXPERIENCE_STORAGE_KEY) || "{}") || {};
+  } catch {
+    return {};
+  }
+}
+
+function getExperienceNote(foodId) {
+  return experienceNotes[foodId] || "";
+}
+
+function setExperienceNote(foodId, note) {
+  const cleanNote = String(note).trim();
+  if (cleanNote) {
+    experienceNotes[foodId] = note;
+  } else {
+    delete experienceNotes[foodId];
+  }
+
+  try {
+    localStorage.setItem(EXPERIENCE_STORAGE_KEY, JSON.stringify(experienceNotes));
+  } catch {
+    // Local notes are optional; the lookup should keep working if storage is blocked.
+  }
 }
 
 function getSearchText(food) {
@@ -713,6 +740,7 @@ function getSearchText(food) {
     food.en,
     food.category,
     food.note,
+    getExperienceNote(food.id),
     food.giDisplay,
     SPEED_META[food.speed].text,
     SPEED_META[food.speed].detail,
@@ -778,6 +806,14 @@ function renderCards(foods) {
           </div>
           <p class="speed-text">${speed.detail} · 升糖${speed.text}</p>
           <p class="note">${escapeHtml(food.note)}</p>
+          <label class="experience-note">
+            <span>飲食經驗</span>
+            <textarea
+              rows="2"
+              data-experience-id="${escapeHtml(food.id)}"
+              placeholder="例：半碗還可以、飯後偏高、配菜一起吃比較穩"
+            >${escapeHtml(getExperienceNote(food.id))}</textarea>
+          </label>
           <div class="source-line">
             <span>${escapeHtml(food.carbSource)}</span>
             <span>${escapeHtml(food.giSource)}</span>
@@ -801,6 +837,7 @@ function renderTable(foods) {
         <td>${food.carbs.toFixed(1)} g</td>
         <td>${escapeHtml(food.giDisplay)}</td>
         <td><span class="speed-label ${speed.className}">${speed.text}</span></td>
+        <td class="experience-cell">${escapeHtml(getExperienceNote(food.id) || "尚未記錄")}</td>
         <td>${escapeHtml(food.note)}</td>
       </tr>
     `;
@@ -855,6 +892,12 @@ function bindEvents() {
       setActiveButtons(els.viewTabs, "view", state.view);
       render();
     });
+  });
+
+  els.cards.addEventListener("input", (event) => {
+    const field = event.target;
+    if (!field.matches("[data-experience-id]")) return;
+    setExperienceNote(field.dataset.experienceId, field.value);
   });
 }
 
