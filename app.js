@@ -1429,6 +1429,790 @@ const FOODS = [
     carbSource: "USDA FoodData Central",
     giSource: "fruit GI estimate",
   },
+  {
+    id: "egg-pancake",
+    zh: "蛋餅",
+    en: "Taiwanese egg pancake",
+    aliases: ["原味蛋餅", "起司蛋餅", "egg pancake", "早餐"],
+    category: "早餐店",
+    carbs: 24.0,
+    gi: 70,
+    giDisplay: "估 70",
+    speed: "fast",
+    note: "麵糊皮加蛋,一份常 100-140g、總碳水約 24-34g;加起司、火腿、培根熱量會升高但碳水變化不大。",
+    carbSource: "早餐店營養估算",
+    giSource: "白麵粉皮估算",
+  },
+  {
+    id: "radish-cake",
+    zh: "蘿蔔糕",
+    en: "Pan-fried radish cake",
+    aliases: ["菜頭粿", "煎蘿蔔糕", "radish cake", "早餐"],
+    category: "早餐店",
+    carbs: 20.0,
+    gi: 80,
+    giDisplay: "估 80",
+    speed: "fast",
+    note: "在來米漿主體,煎後外脆;一片約 50-70g、總碳水 10-14g,搭蛋或醬油膏會再加。",
+    carbSource: "USDA / 在來米估算",
+    giSource: "Sydney GI: rice cake",
+  },
+  {
+    id: "shaobing",
+    zh: "燒餅",
+    en: "Sesame flatbread",
+    aliases: ["芝麻燒餅", "shaobing", "燒餅油條"],
+    category: "早餐店",
+    carbs: 48.0,
+    gi: 72,
+    giDisplay: "估 72",
+    speed: "fast",
+    note: "層次酥烤麵餅;一份約 60-80g、總碳水 28-38g,夾油條會再多麵粉碳水。",
+    carbSource: "中式麵點營養估算",
+    giSource: "白麵粉烘烤估算",
+  },
+  {
+    id: "youtiao",
+    zh: "油條",
+    en: "Fried cruller",
+    aliases: ["油炸鬼", "youtiao"],
+    category: "早餐店",
+    carbs: 45.0,
+    gi: 70,
+    giDisplay: "估 70",
+    speed: "fast",
+    note: "高溫油炸的白麵粉長條;一根約 40-60g、碳水 18-27g,熱量主要來自油脂。",
+    carbSource: "炸麵食估算",
+    giSource: "白麵粉油炸估算",
+  },
+  {
+    id: "scallion-pancake",
+    zh: "蔥抓餅",
+    en: "Scallion pancake",
+    aliases: ["蔥油餅", "抓餅", "scallion pancake"],
+    category: "早餐店",
+    carbs: 38.0,
+    gi: 70,
+    giDisplay: "估 70",
+    speed: "fast",
+    note: "白麵粉層次餅;一份約 80-120g、碳水 30-46g,加蛋、起司、九層塔不大幅改變碳水。",
+    carbSource: "中式麵點營養估算",
+    giSource: "白麵粉烘烤估算",
+  },
+  {
+    id: "thick-toast",
+    zh: "厚片吐司",
+    en: "Thick toast (sweet spread)",
+    aliases: ["奶酥厚片", "花生厚片", "巧克力厚片", "thick toast"],
+    category: "早餐店",
+    carbs: 52.0,
+    gi: 78,
+    giDisplay: "估 75+",
+    speed: "fast",
+    note: "白吐司一片約 50g、加奶酥/巧克力醬一份可達 30-40g 碳水;醬料糖分要加進去算。",
+    carbSource: "白吐司+甜醬估算",
+    giSource: "白麵包+糖醬估算",
+  },
+  {
+    id: "ham-sandwich",
+    zh: "火腿三明治",
+    en: "Ham sandwich (Taiwan breakfast)",
+    aliases: ["三明治", "火腿蛋三明治", "肉鬆三明治"],
+    category: "早餐店",
+    carbs: 28.0,
+    gi: 72,
+    giDisplay: "估 72",
+    speed: "fast",
+    note: "白吐司 2-3 片夾火腿/蛋/小黃瓜;一份約 120-180g、碳水 34-50g。",
+    carbSource: "早餐三明治估算",
+    giSource: "白麵包主導估算",
+  },
+  {
+    id: "rice-ball-fantuan",
+    zh: "傳統飯糰",
+    en: "Taiwanese rice roll",
+    aliases: ["紫米飯糰", "fantuan", "早餐飯糰", "飯糰"],
+    category: "早餐店",
+    carbs: 35.0,
+    gi: 82,
+    giDisplay: "估 80+",
+    speed: "fast",
+    note: "糯米/白米飯包油條、肉鬆、菜脯;一顆約 150-200g、碳水 50-70g,糯米升糖較快。",
+    carbSource: "糯米飯糰估算",
+    giSource: "糯米主導估算",
+  },
+  {
+    id: "sweet-soy-milk",
+    zh: "加糖豆漿",
+    en: "Sweetened soy milk",
+    aliases: ["甜豆漿", "soy milk", "豆奶"],
+    category: "早餐店",
+    carbs: 6.0,
+    gi: 34,
+    giDisplay: "34",
+    speed: "slow",
+    note: "每 100ml 約 5-7g 碳水;一杯 350-500ml 約 18-30g,主要來自加的糖。",
+    carbSource: "豆漿營養估算",
+    giSource: "Sydney GI: soy milk",
+  },
+  {
+    id: "unsweet-soy-milk",
+    zh: "無糖豆漿",
+    en: "Unsweetened soy milk",
+    aliases: ["原味豆漿", "無糖豆漿"],
+    category: "早餐店",
+    carbs: 1.5,
+    gi: 30,
+    giDisplay: "估 30",
+    speed: "slow",
+    note: "幾乎不含糖,蛋白質約 3-4g/100ml;適合低升糖早餐搭配。",
+    carbSource: "USDA / 豆漿估算",
+    giSource: "Sydney GI: soy milk",
+  },
+  {
+    id: "rice-milk-drink",
+    zh: "米漿",
+    en: "Rice peanut milk drink",
+    aliases: ["花生米漿", "rice milk", "米奶"],
+    category: "早餐店",
+    carbs: 12.0,
+    gi: 75,
+    giDisplay: "估 75",
+    speed: "fast",
+    note: "白米加花生打成、加糖;一杯 350-500ml 碳水可達 40-60g,升糖比豆漿快很多。",
+    carbSource: "米漿營養估算",
+    giSource: "白米糊+糖估算",
+  },
+  {
+    id: "gua-bao",
+    zh: "刈包 / 割包",
+    en: "Gua bao (steamed bun with pork)",
+    aliases: ["割包", "刈包", "虎咬豬", "gua bao"],
+    category: "夜市小吃",
+    carbs: 30.0,
+    gi: 72,
+    giDisplay: "估 72",
+    speed: "fast",
+    note: "白饅頭夾滷肉、酸菜、花生粉、香菜;一份約 120-150g、碳水 36-45g。",
+    carbSource: "刈包估算",
+    giSource: "白饅頭主導估算",
+  },
+  {
+    id: "ba-wan",
+    zh: "肉圓",
+    en: "Ba wan (Taiwanese meatball)",
+    aliases: ["彰化肉圓", "清蒸肉圓", "炸肉圓", "ba wan"],
+    category: "夜市小吃",
+    carbs: 22.0,
+    gi: 65,
+    giDisplay: "估 65",
+    speed: "medium",
+    note: "地瓜粉加在來米皮包肉;一顆約 100-150g、碳水 22-33g,甜辣醬另外算糖。",
+    carbSource: "肉圓營養估算",
+    giSource: "澱粉皮+甜醬估算",
+  },
+  {
+    id: "oyster-vermicelli",
+    zh: "蚵仔麵線",
+    en: "Oyster vermicelli",
+    aliases: ["大腸麵線", "麵線糊", "oyster vermicelli"],
+    category: "夜市小吃",
+    carbs: 14.0,
+    gi: 65,
+    giDisplay: "估 65",
+    speed: "medium",
+    note: "白麵線加勾芡湯;一碗約 300g、碳水 35-45g,勾芡與烏醋糖分都要算。",
+    carbSource: "麵線糊估算",
+    giSource: "白麵線+勾芡估算",
+  },
+  {
+    id: "stinky-tofu",
+    zh: "炸臭豆腐",
+    en: "Fried stinky tofu",
+    aliases: ["臭豆腐", "stinky tofu", "夜市"],
+    category: "夜市小吃",
+    carbs: 8.0,
+    gi: 40,
+    giDisplay: "估 40",
+    speed: "slow",
+    note: "豆腐本身碳水低;一份 4 塊約 150g、總碳水 10-12g,泡菜含糖另計。",
+    carbSource: "豆腐+裹粉估算",
+    giSource: "低碳油炸估算",
+  },
+  {
+    id: "sweet-potato-balls",
+    zh: "地瓜球",
+    en: "Fried sweet potato balls",
+    aliases: ["QQ 球", "地瓜球", "夜市"],
+    category: "夜市小吃",
+    carbs: 38.0,
+    gi: 78,
+    giDisplay: "估 75+",
+    speed: "fast",
+    note: "地瓜加樹薯粉油炸;一份 100g 約 38g 碳水,糖粉/醬會再增加。",
+    carbSource: "炸澱粉球估算",
+    giSource: "澱粉油炸估算",
+  },
+  {
+    id: "red-bean-cake",
+    zh: "紅豆餅 / 車輪餅",
+    en: "Red bean wheel cake",
+    aliases: ["車輪餅", "今川燒", "紅豆餅", "奶油餅"],
+    category: "夜市小吃",
+    carbs: 45.0,
+    gi: 70,
+    giDisplay: "估 70",
+    speed: "fast",
+    note: "白麵粉皮包紅豆/奶油內餡;一顆約 70-90g、碳水 30-40g,奶油版油脂高。",
+    carbSource: "車輪餅估算",
+    giSource: "白麵粉皮+糖估算",
+  },
+  {
+    id: "pepper-bun",
+    zh: "胡椒餅",
+    en: "Pepper bun",
+    aliases: ["福州胡椒餅", "pepper bun"],
+    category: "夜市小吃",
+    carbs: 35.0,
+    gi: 70,
+    giDisplay: "估 70",
+    speed: "fast",
+    note: "白麵皮包蔥肉烤製;一顆約 150g、碳水 50-55g,通常熱量也偏高。",
+    carbSource: "胡椒餅估算",
+    giSource: "白麵粉烘烤估算",
+  },
+  {
+    id: "grilled-sausage",
+    zh: "烤香腸",
+    en: "Grilled Taiwanese sausage",
+    aliases: ["香腸", "台式香腸", "烤香腸"],
+    category: "夜市小吃",
+    carbs: 4.0,
+    gi: 28,
+    giDisplay: "估 28",
+    speed: "slow",
+    note: "本身碳水低,但加工肉品鈉與亞硝酸鹽要注意;蒜頭與糯米腸搭配時主要碳水在配料。",
+    carbSource: "USDA / 香腸估算",
+    giSource: "低碳肉品估算",
+  },
+  {
+    id: "egg-waffle-cake",
+    zh: "雞蛋糕",
+    en: "Taiwanese egg waffle",
+    aliases: ["雞蛋糕", "egg cake", "夜市"],
+    category: "夜市小吃",
+    carbs: 50.0,
+    gi: 75,
+    giDisplay: "估 75",
+    speed: "fast",
+    note: "麵粉糖蛋打成糊烤;一份 6-8 顆約 120-160g、碳水 60-80g。",
+    carbSource: "雞蛋糕估算",
+    giSource: "白麵粉+糖估算",
+  },
+  {
+    id: "popiah",
+    zh: "潤餅",
+    en: "Popiah (Taiwanese spring roll)",
+    aliases: ["潤餅", "春捲", "popiah"],
+    category: "夜市小吃",
+    carbs: 28.0,
+    gi: 70,
+    giDisplay: "估 70",
+    speed: "fast",
+    note: "白麵粉皮包高麗菜、肉、花生糖粉;一捲 150-200g 約 40-55g 碳水,花生糖粉加糖。",
+    carbSource: "潤餅估算",
+    giSource: "白麵粉皮估算",
+  },
+  {
+    id: "yangchun-noodles",
+    zh: "陽春麵",
+    en: "Plain noodle soup",
+    aliases: ["清湯麵", "陽春麵"],
+    category: "麵食湯品",
+    carbs: 18.0,
+    gi: 65,
+    giDisplay: "估 65",
+    speed: "medium",
+    note: "白麵加清湯;一碗約 250-300g、碳水 45-55g,沒勾芡升糖比羹麵慢。",
+    carbSource: "白麵+湯估算",
+    giSource: "小麥麵條估算",
+  },
+  {
+    id: "wonton-noodles",
+    zh: "餛飩麵",
+    en: "Wonton noodle soup",
+    aliases: ["雲吞麵", "餛飩麵", "扁食麵"],
+    category: "麵食湯品",
+    carbs: 20.0,
+    gi: 65,
+    giDisplay: "估 65",
+    speed: "medium",
+    note: "白麵加餛飩皮雙重澱粉;一碗約 300g、碳水 55-65g。",
+    carbSource: "餛飩麵估算",
+    giSource: "小麥麵+皮估算",
+  },
+  {
+    id: "sesame-paste-noodles",
+    zh: "麻醬麵",
+    en: "Sesame paste noodles",
+    aliases: ["麻醬麵", "涼麵醬料"],
+    category: "麵食湯品",
+    carbs: 30.0,
+    gi: 60,
+    giDisplay: "估 60",
+    speed: "medium",
+    note: "麻醬油脂多可能稍降 GI;一份 200-250g、碳水 55-70g,醬本身也帶糖。",
+    carbSource: "麻醬麵估算",
+    giSource: "小麥麵+油脂估算",
+  },
+  {
+    id: "danzai-noodles",
+    zh: "擔仔麵",
+    en: "Danzai noodles",
+    aliases: ["擔仔麵", "度小月", "danzai"],
+    category: "麵食湯品",
+    carbs: 15.0,
+    gi: 62,
+    giDisplay: "估 62",
+    speed: "medium",
+    note: "小份油麵加肉燥蝦湯;一碗約 200g、碳水 28-35g,分量小單獨吃血糖負擔較輕。",
+    carbSource: "擔仔麵估算",
+    giSource: "油麵估算",
+  },
+  {
+    id: "rice-vermicelli-soup",
+    zh: "米粉湯",
+    en: "Rice vermicelli soup",
+    aliases: ["新竹米粉湯", "炊粉湯", "米粉湯"],
+    category: "麵食湯品",
+    carbs: 14.0,
+    gi: 58,
+    giDisplay: "估 58",
+    speed: "medium",
+    note: "米粉湯水分多;一碗約 300-350g、碳水 38-50g,黑白切配料另外算。",
+    carbSource: "米粉湯估算",
+    giSource: "Sydney GI: rice vermicelli",
+  },
+  {
+    id: "thick-soup-noodles",
+    zh: "肉羹麵",
+    en: "Thick pork soup noodles",
+    aliases: ["肉羹麵", "魷魚羹麵", "羹麵"],
+    category: "麵食湯品",
+    carbs: 18.0,
+    gi: 70,
+    giDisplay: "估 70",
+    speed: "fast",
+    note: "勾芡湯加白麵;一碗約 300g、碳水 50-60g,勾芡讓血糖反應比清湯麵快。",
+    carbSource: "肉羹麵估算",
+    giSource: "勾芡澱粉估算",
+  },
+  {
+    id: "hot-sour-soup",
+    zh: "酸辣湯",
+    en: "Hot and sour soup",
+    aliases: ["酸辣湯", "hot and sour"],
+    category: "麵食湯品",
+    carbs: 5.0,
+    gi: 60,
+    giDisplay: "估 60",
+    speed: "medium",
+    note: "勾芡加少量配料;一碗約 250g、碳水 12-18g,搭餃子或飯時整餐才是重點。",
+    carbSource: "酸辣湯估算",
+    giSource: "勾芡澱粉估算",
+  },
+  {
+    id: "four-spirits-soup",
+    zh: "四神湯",
+    en: "Four spirits soup",
+    aliases: ["四神湯", "四臣湯"],
+    category: "麵食湯品",
+    carbs: 8.0,
+    gi: 48,
+    giDisplay: "估 48",
+    speed: "slow",
+    note: "薏仁/茯苓/淮山/蓮子煮豬腸或排骨;一碗約 300g、碳水 20-28g,屬於低升糖湯品。",
+    carbSource: "四神湯估算",
+    giSource: "薏仁+蓮子估算",
+  },
+  {
+    id: "savory-rice-porridge",
+    zh: "鹹粥",
+    en: "Taiwanese savory rice porridge",
+    aliases: ["鹹粥", "海鮮粥", "皮蛋瘦肉粥"],
+    category: "麵食湯品",
+    carbs: 12.0,
+    gi: 72,
+    giDisplay: "估 72",
+    speed: "fast",
+    note: "煮糊白米加配料;一碗 350g 約 40g 碳水,糊化程度高升糖比飯快。",
+    carbSource: "鹹粥估算",
+    giSource: "糊化白米估算",
+  },
+  {
+    id: "you-fan",
+    zh: "油飯",
+    en: "Taiwanese sticky rice",
+    aliases: ["麻油雞飯", "彌月油飯", "you fan"],
+    category: "台式飯類",
+    carbs: 35.0,
+    gi: 88,
+    giDisplay: "估 85+",
+    speed: "fast",
+    note: "糯米炒麻油香菇蝦米;一份 200g 約 70g 碳水,糯米升糖很快。",
+    carbSource: "糯米+油估算",
+    giSource: "Sydney GI: glutinous rice",
+  },
+  {
+    id: "zongzi",
+    zh: "肉粽",
+    en: "Zongzi (sticky rice dumpling)",
+    aliases: ["北部粽", "南部粽", "肉粽", "zongzi", "粽子"],
+    category: "台式飯類",
+    carbs: 32.0,
+    gi: 87,
+    giDisplay: "估 85+",
+    speed: "fast",
+    note: "糯米包肉栗子;一顆 150-220g、碳水 50-70g,糯米升糖很快、油脂可能延後。",
+    carbSource: "肉粽估算",
+    giSource: "糯米估算",
+  },
+  {
+    id: "curry-rice",
+    zh: "咖哩飯",
+    en: "Curry rice",
+    aliases: ["日式咖哩飯", "雞肉咖哩", "豬肉咖哩"],
+    category: "台式飯類",
+    carbs: 25.0,
+    gi: 75,
+    giDisplay: "估 75",
+    speed: "fast",
+    note: "白飯加勾芡咖哩塊;一份 400-500g、碳水 100-125g,咖哩塊本身含麵粉糖。",
+    carbSource: "咖哩飯估算",
+    giSource: "白飯+勾芡估算",
+  },
+  {
+    id: "rice-with-sauce",
+    zh: "燴飯",
+    en: "Rice with starchy sauce",
+    aliases: ["蝦仁燴飯", "牛肉燴飯", "燴飯"],
+    category: "台式飯類",
+    carbs: 22.0,
+    gi: 78,
+    giDisplay: "估 75+",
+    speed: "fast",
+    note: "白飯淋勾芡湯汁;一份 400g 約 88g 碳水,勾芡讓升糖比清炒更快。",
+    carbSource: "燴飯估算",
+    giSource: "白飯+勾芡估算",
+  },
+  {
+    id: "hainan-chicken-rice",
+    zh: "海南雞飯",
+    en: "Hainan chicken rice",
+    aliases: ["海南雞", "新加坡雞飯", "hainan"],
+    category: "台式飯類",
+    carbs: 27.0,
+    gi: 78,
+    giDisplay: "估 78",
+    speed: "fast",
+    note: "雞油雞高湯煮白飯;一份 350-400g、碳水 95-108g,雞油與飯量都會影響。",
+    carbSource: "海南雞飯估算",
+    giSource: "白飯+雞油估算",
+  },
+  {
+    id: "sweet-potato-rice",
+    zh: "地瓜飯",
+    en: "Sweet potato rice",
+    aliases: ["地瓜飯", "地瓜稀飯"],
+    category: "台式飯類",
+    carbs: 25.0,
+    gi: 68,
+    giDisplay: "估 68",
+    speed: "medium",
+    note: "白飯混蒸地瓜塊;一份 300g 約 75g 碳水,GI 比純白飯稍低但仍偏中高。",
+    carbSource: "白飯+地瓜估算",
+    giSource: "混合飯估算",
+  },
+  {
+    id: "bubble-milk-tea",
+    zh: "珍珠奶茶",
+    en: "Bubble milk tea (full sugar)",
+    aliases: ["珍奶", "波霸奶茶", "bubble tea", "boba"],
+    category: "手搖飲",
+    carbs: 12.0,
+    gi: 70,
+    giDisplay: "估 70",
+    speed: "fast",
+    note: "每 100ml 約 10-14g 糖;一杯 500-700ml 加珍珠約 50-80g 碳水,珍珠是濃縮澱粉。",
+    carbSource: "手搖飲糖度估算",
+    giSource: "糖+珍珠估算",
+  },
+  {
+    id: "sugared-black-tea",
+    zh: "加糖紅茶 / 綠茶",
+    en: "Sweetened tea",
+    aliases: ["全糖紅茶", "古早味紅茶", "綠茶", "紅茶"],
+    category: "手搖飲",
+    carbs: 10.0,
+    gi: 70,
+    giDisplay: "估 70",
+    speed: "fast",
+    note: "純糖水溶液升糖很快;一杯 500ml 約 50g 糖,半糖約 25-30g。",
+    carbSource: "手搖飲糖度估算",
+    giSource: "蔗糖估算",
+  },
+  {
+    id: "winter-melon-tea",
+    zh: "冬瓜茶",
+    en: "Winter melon tea",
+    aliases: ["冬瓜茶", "winter melon"],
+    category: "手搖飲",
+    carbs: 12.0,
+    gi: 75,
+    giDisplay: "估 75",
+    speed: "fast",
+    note: "冬瓜熬糖磚為主;一杯 500ml 約 50-65g 糖,屬於濃糖飲。",
+    carbSource: "冬瓜茶估算",
+    giSource: "蔗糖估算",
+  },
+  {
+    id: "papaya-milk",
+    zh: "木瓜牛奶",
+    en: "Papaya milk",
+    aliases: ["木瓜牛奶", "papaya milk"],
+    category: "手搖飲",
+    carbs: 11.0,
+    gi: 50,
+    giDisplay: "估 50",
+    speed: "slow",
+    note: "牛奶加木瓜糖;一杯 500ml 約 50-60g 碳水,牛奶蛋白與脂肪會稍緩升糖。",
+    carbSource: "木瓜牛奶估算",
+    giSource: "果+乳+糖估算",
+  },
+  {
+    id: "starfruit-juice",
+    zh: "楊桃汁",
+    en: "Starfruit juice",
+    aliases: ["楊桃汁", "starfruit juice"],
+    category: "手搖飲",
+    carbs: 11.0,
+    gi: 55,
+    giDisplay: "估 55",
+    speed: "medium",
+    note: "楊桃榨汁加糖;500ml 約 50g 糖。腎臟病患者需依醫囑避免楊桃。",
+    carbSource: "楊桃汁估算",
+    giSource: "果汁+糖估算",
+  },
+  {
+    id: "herbal-tea-sugared",
+    zh: "青草茶 / 仙草茶",
+    en: "Herbal tea (sweetened)",
+    aliases: ["青草茶", "仙草茶", "herbal tea"],
+    category: "手搖飲",
+    carbs: 10.0,
+    gi: 68,
+    giDisplay: "估 68",
+    speed: "medium",
+    note: "傳統市場版常加二砂糖;500ml 約 40-50g 糖,「無糖」版才能視為近 0 碳水。",
+    carbSource: "青草茶估算",
+    giSource: "蔗糖估算",
+  },
+  {
+    id: "unsweet-tea",
+    zh: "無糖茶",
+    en: "Unsweetened tea",
+    aliases: ["無糖紅茶", "無糖綠茶", "無糖烏龍茶", "unsweetened tea"],
+    category: "手搖飲",
+    carbs: 0.0,
+    gi: 0,
+    giDisplay: "0",
+    speed: "slow",
+    note: "純茶無糖、無熱量;適合配主食穩定餐後血糖。",
+    carbSource: "無糖飲品",
+    giSource: "無糖",
+  },
+  {
+    id: "tofu-pudding",
+    zh: "豆花",
+    en: "Tofu pudding (with syrup)",
+    aliases: ["豆花", "傳統豆花", "douhua"],
+    category: "台式甜點",
+    carbs: 15.0,
+    gi: 65,
+    giDisplay: "估 65",
+    speed: "medium",
+    note: "豆花本身近 0 碳水,糖水加料(粉圓、花生、紅豆)是主因;一碗 300g 約 45g 碳水。",
+    carbSource: "豆花+糖水估算",
+    giSource: "糖水+配料估算",
+  },
+  {
+    id: "aiyu-jelly",
+    zh: "愛玉",
+    en: "Aiyu jelly (with lemon syrup)",
+    aliases: ["愛玉", "檸檬愛玉", "aiyu"],
+    category: "台式甜點",
+    carbs: 12.0,
+    gi: 58,
+    giDisplay: "估 58",
+    speed: "medium",
+    note: "愛玉本體幾乎 0 碳水;碳水主要在加糖檸檬汁,一碗 300g 約 35g 碳水。",
+    carbSource: "愛玉+糖水估算",
+    giSource: "糖水估算",
+  },
+  {
+    id: "mango-shaved-ice",
+    zh: "芒果冰",
+    en: "Mango shaved ice",
+    aliases: ["芒果剉冰", "芒果雪花冰", "mango ice"],
+    category: "台式甜點",
+    carbs: 25.0,
+    gi: 72,
+    giDisplay: "估 72",
+    speed: "fast",
+    note: "雪花冰加芒果煉乳糖水;一份 350-450g 約 80-110g 碳水,煉乳糖量高。",
+    carbSource: "芒果冰估算",
+    giSource: "糖+果+乳估算",
+  },
+  {
+    id: "red-bean-soup",
+    zh: "紅豆湯",
+    en: "Sweet red bean soup",
+    aliases: ["紅豆湯", "紅豆湯圓", "red bean soup"],
+    category: "台式甜點",
+    carbs: 22.0,
+    gi: 55,
+    giDisplay: "估 55",
+    speed: "slow",
+    note: "紅豆本身低 GI,但加大量糖;一碗 250g 約 50-60g 碳水,加湯圓再加糯米碳水。",
+    carbSource: "紅豆湯估算",
+    giSource: "豆+糖估算",
+  },
+  {
+    id: "tang-yuan",
+    zh: "湯圓",
+    en: "Glutinous rice balls in sweet soup",
+    aliases: ["湯圓", "鮮肉湯圓", "甜湯圓", "tang yuan"],
+    category: "台式甜點",
+    carbs: 22.0,
+    gi: 85,
+    giDisplay: "估 85",
+    speed: "fast",
+    note: "糯米皮加甜湯;一碗 6-8 顆約 250g、碳水 50-60g,糯米升糖快、甜湯再加糖。",
+    carbSource: "湯圓營養估算",
+    giSource: "糯米+糖估算",
+  },
+  {
+    id: "mochi",
+    zh: "麻糬",
+    en: "Mochi",
+    aliases: ["麻糬", "花生麻糬", "草莓大福", "mochi"],
+    category: "台式甜點",
+    carbs: 50.0,
+    gi: 85,
+    giDisplay: "估 85",
+    speed: "fast",
+    note: "糯米團加糖加花生粉;一顆約 30-50g、碳水 15-25g,屬高升糖甜點。",
+    carbSource: "麻糬估算",
+    giSource: "糯米+糖估算",
+  },
+  {
+    id: "taro-balls",
+    zh: "芋圓",
+    en: "Taro balls in sweet soup",
+    aliases: ["芋圓", "QQ 芋圓", "綜合芋圓", "taro ball"],
+    category: "台式甜點",
+    carbs: 30.0,
+    gi: 75,
+    giDisplay: "估 75",
+    speed: "fast",
+    note: "芋頭/地瓜加樹薯粉加糖水;一碗 300g 約 65-85g 碳水,粉圓料分量越多越快。",
+    carbSource: "芋圓估算",
+    giSource: "澱粉+糖估算",
+  },
+  {
+    id: "brown-sugar-shaved-ice",
+    zh: "黑糖剉冰",
+    en: "Brown sugar shaved ice",
+    aliases: ["黑糖刨冰", "黑糖剉冰", "brown sugar ice"],
+    category: "台式甜點",
+    carbs: 22.0,
+    gi: 80,
+    giDisplay: "估 80",
+    speed: "fast",
+    note: "冰加黑糖加配料(紅豆/綠豆/芋圓/花豆);一份 400g 約 80-100g 碳水。",
+    carbSource: "剉冰估算",
+    giSource: "糖+澱粉料估算",
+  },
+  {
+    id: "convenience-rice-ball",
+    zh: "御飯糰",
+    en: "Convenience store rice ball",
+    aliases: ["御飯糰", "三角飯糰", "便利商店飯糰"],
+    category: "便利商店",
+    carbs: 35.0,
+    gi: 80,
+    giDisplay: "估 80",
+    speed: "fast",
+    note: "三角白飯糰一顆約 100-120g、碳水 38-46g,鮪魚/鮭魚/烤肉口味碳水近似。",
+    carbSource: "便利商店標示",
+    giSource: "白飯主導估算",
+  },
+  {
+    id: "tea-egg",
+    zh: "茶葉蛋",
+    en: "Tea egg",
+    aliases: ["茶葉蛋", "tea egg", "滷蛋"],
+    category: "便利商店",
+    carbs: 1.0,
+    gi: 0,
+    giDisplay: "0",
+    speed: "slow",
+    note: "幾乎不含碳水,主要是蛋白與脂肪;適合搭主食穩定升糖速度。",
+    carbSource: "茶葉蛋估算",
+    giSource: "蛋白質為主",
+  },
+  {
+    id: "oden-radish",
+    zh: "關東煮 蘿蔔",
+    en: "Oden daikon",
+    aliases: ["關東煮", "白蘿蔔", "oden"],
+    category: "便利商店",
+    carbs: 4.0,
+    gi: 30,
+    giDisplay: "估 30",
+    speed: "slow",
+    note: "白蘿蔔本身低碳低 GI;但同碗的米血、年糕、甜不辣才是主碳水。",
+    carbSource: "USDA 白蘿蔔",
+    giSource: "低澱粉蔬菜估算",
+  },
+  {
+    id: "oden-rice-blood",
+    zh: "米血糕",
+    en: "Pig blood rice cake (oden)",
+    aliases: ["米血糕", "豬血糕", "rice blood"],
+    category: "便利商店",
+    carbs: 28.0,
+    gi: 78,
+    giDisplay: "估 75+",
+    speed: "fast",
+    note: "糯米加豬血壓製;一塊 50-80g、碳水 14-22g,沾花生粉糖會再加。",
+    carbSource: "米血糕估算",
+    giSource: "糯米估算",
+  },
+  {
+    id: "oden-fish-cake",
+    zh: "甜不辣",
+    en: "Tempura fish cake (oden)",
+    aliases: ["甜不辣", "黑輪", "fish cake"],
+    category: "便利商店",
+    carbs: 15.0,
+    gi: 60,
+    giDisplay: "估 60",
+    speed: "medium",
+    note: "魚漿加澱粉;一份 100g 碳水 15g 左右,甜辣醬糖分另算。",
+    carbSource: "甜不辣估算",
+    giSource: "魚漿+澱粉估算",
+  },
 ];
 
 const SPEED_META = {
@@ -1437,9 +2221,149 @@ const SPEED_META = {
   fast: { text: "快", detail: "高 GI", className: "fast" },
 };
 
-const EXPERIENCE_STORAGE_KEY = "staple-carb-gi-experience-v1";
+const MEAL_LABELS = {
+  "": "未指定",
+  breakfast: "早餐",
+  lunch: "午餐",
+  dinner: "晚餐",
+  snack: "點心",
+  late: "消夜",
+};
 
-let experienceNotes = loadExperienceNotes();
+const STORAGE_KEY = "glucose-tracker-v2";
+const LEGACY_NOTES_KEY = "staple-carb-gi-experience-v1";
+const FOOD_BY_ID = Object.fromEntries(FOODS.map((f) => [f.id, f]));
+
+const defaultData = () => ({
+  notes: {},
+  records: {},
+  favorites: [],
+  settings: { theme: "auto" },
+  lastPortion: {},
+});
+
+let data = loadData();
+
+function loadData() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      return deepMerge(defaultData(), parsed);
+    }
+    const legacy = localStorage.getItem(LEGACY_NOTES_KEY);
+    if (legacy) {
+      const notes = JSON.parse(legacy) || {};
+      return { ...defaultData(), notes };
+    }
+  } catch (e) {
+    console.warn("loadData failed", e);
+  }
+  return defaultData();
+}
+
+function deepMerge(target, source) {
+  for (const key in source) {
+    const sv = source[key];
+    if (sv && typeof sv === "object" && !Array.isArray(sv)) {
+      target[key] = deepMerge(target[key] || {}, sv);
+    } else {
+      target[key] = sv;
+    }
+  }
+  return target;
+}
+
+function saveData() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  } catch (e) {
+    console.warn("saveData failed", e);
+  }
+}
+
+function getNote(id) { return data.notes[id] || ""; }
+function setNote(id, value) {
+  if (String(value).trim()) data.notes[id] = value;
+  else delete data.notes[id];
+  saveData();
+}
+
+function getRecords(id) { return data.records[id] || []; }
+function addRecord(id, record) {
+  if (!data.records[id]) data.records[id] = [];
+  data.records[id].push({ id: makeId(), createdAt: Date.now(), ...record });
+  saveData();
+}
+function deleteRecord(foodId, recordId) {
+  if (!data.records[foodId]) return;
+  data.records[foodId] = data.records[foodId].filter((r) => r.id !== recordId);
+  if (data.records[foodId].length === 0) delete data.records[foodId];
+  saveData();
+}
+function makeId() {
+  return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+}
+
+function isFavorite(id) { return data.favorites.includes(id); }
+function toggleFavorite(id) {
+  data.favorites = isFavorite(id)
+    ? data.favorites.filter((x) => x !== id)
+    : [...data.favorites, id];
+  saveData();
+}
+
+function getLastPortion(id) { return Number(data.lastPortion[id]) || 100; }
+function setLastPortion(id, g) {
+  data.lastPortion[id] = Number(g) || 100;
+  saveData();
+}
+
+function applyTheme() {
+  document.body.dataset.theme = data.settings.theme || "auto";
+}
+function setTheme(t) {
+  data.settings.theme = t;
+  saveData();
+  applyTheme();
+}
+
+function carbsFor(food, grams) { return (food.carbs * (Number(grams) || 0)) / 100; }
+function computeGL(food, grams) { return (food.gi * food.carbs * (Number(grams) || 0)) / 10000; }
+
+function allRecordsFlat() {
+  const out = [];
+  for (const fid in data.records) {
+    for (const r of data.records[fid]) out.push({ ...r, foodId: fid });
+  }
+  return out;
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+function normalize(value) { return String(value).trim().toLowerCase(); }
+
+function todayIso() {
+  const d = new Date();
+  const tz = d.getTimezoneOffset() * 60000;
+  return new Date(d - tz).toISOString().slice(0, 10);
+}
+
+function highlight(text, query) {
+  const safe = escapeHtml(text);
+  if (!query) return safe;
+  const q = String(query).trim();
+  if (!q) return safe;
+  const idx = safe.toLowerCase().indexOf(q.toLowerCase());
+  if (idx === -1) return safe;
+  return safe.slice(0, idx) + "<mark>" + safe.slice(idx, idx + q.length) + "</mark>" + safe.slice(idx + q.length);
+}
 
 const state = {
   query: "",
@@ -1447,6 +2371,7 @@ const state = {
   speed: "all",
   view: "cards",
   sort: "name",
+  favOnly: false,
 };
 
 const els = {
@@ -1456,61 +2381,22 @@ const els = {
   cards: document.querySelector("#cards"),
   tableWrap: document.querySelector("#tableWrap"),
   table: document.querySelector("#foodTable"),
+  diary: document.querySelector("#diary"),
+  tools: document.querySelector("#tools"),
   empty: document.querySelector("#emptyState"),
   resultCount: document.querySelector("#resultCount"),
-  avgCarbs: document.querySelector("#avgCarbs"),
-  fastCount: document.querySelector("#fastCount"),
+  favCount: document.querySelector("#favCount"),
+  recordCount: document.querySelector("#recordCount"),
   speedTabs: document.querySelectorAll(".speed-tab"),
   viewTabs: document.querySelectorAll(".view-tab"),
+  favOnlyBtn: document.querySelector("#favOnlyBtn"),
+  importFile: document.querySelector("#importFileInput"),
 };
-
-function escapeHtml(value) {
-  return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
-
-function normalize(value) {
-  return String(value).trim().toLowerCase();
-}
-
-function loadExperienceNotes() {
-  try {
-    return JSON.parse(localStorage.getItem(EXPERIENCE_STORAGE_KEY) || "{}") || {};
-  } catch {
-    return {};
-  }
-}
-
-function getExperienceNote(foodId) {
-  return experienceNotes[foodId] || "";
-}
-
-function setExperienceNote(foodId, note) {
-  const cleanNote = String(note).trim();
-  if (cleanNote) {
-    experienceNotes[foodId] = note;
-  } else {
-    delete experienceNotes[foodId];
-  }
-
-  try {
-    localStorage.setItem(EXPERIENCE_STORAGE_KEY, JSON.stringify(experienceNotes));
-  } catch {
-    // Local notes are optional; the lookup should keep working if storage is blocked.
-  }
-}
 
 function getSearchText(food) {
   return normalize([
-    food.zh,
-    food.en,
-    food.category,
-    food.note,
-    getExperienceNote(food.id),
+    food.zh, food.en, food.category, food.note,
+    getNote(food.id),
     food.giDisplay,
     SPEED_META[food.speed].text,
     SPEED_META[food.speed].detail,
@@ -1522,155 +2408,523 @@ function getFilteredFoods() {
   const query = normalize(state.query);
   return FOODS
     .filter((food) => {
+      if (state.favOnly && !isFavorite(food.id)) return false;
       const matchesQuery = !query || getSearchText(food).includes(query);
       const matchesCategory = state.category === "全部" || food.category === state.category;
       const matchesSpeed = state.speed === "all" || food.speed === state.speed;
       return matchesQuery && matchesCategory && matchesSpeed;
     })
     .sort((a, b) => {
+      const aFav = isFavorite(a.id), bFav = isFavorite(b.id);
+      if (aFav !== bFav) return aFav ? -1 : 1;
       if (state.sort === "carbsDesc") return b.carbs - a.carbs || a.zh.localeCompare(b.zh, "zh-Hant");
       if (state.sort === "carbsAsc") return a.carbs - b.carbs || a.zh.localeCompare(b.zh, "zh-Hant");
       if (state.sort === "giDesc") return b.gi - a.gi || b.carbs - a.carbs;
       if (state.sort === "giAsc") return a.gi - b.gi || a.carbs - b.carbs;
+      if (state.sort === "glDesc") return (b.gi * b.carbs) - (a.gi * a.carbs);
+      if (state.sort === "glAsc") return (a.gi * a.carbs) - (b.gi * b.carbs);
       return a.zh.localeCompare(b.zh, "zh-Hant");
     });
 }
 
 function renderCategoryOptions() {
-  const categories = ["全部", ...new Set(FOODS.map((food) => food.category))];
+  const categories = ["全部", ...new Set(FOODS.map((f) => f.category))];
   els.category.innerHTML = categories
-    .map((category) => `<option value="${escapeHtml(category)}">${escapeHtml(category)}</option>`)
+    .map((c) => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`)
     .join("");
 }
 
 function renderSummary(foods) {
   els.resultCount.textContent = foods.length;
-  els.avgCarbs.textContent = foods.length
-    ? (foods.reduce((sum, food) => sum + food.carbs, 0) / foods.length).toFixed(1)
-    : "0";
-  els.fastCount.textContent = foods.filter((food) => food.speed === "fast").length;
+  els.favCount.textContent = data.favorites.length;
+  els.recordCount.textContent = Object.values(data.records).reduce((s, l) => s + l.length, 0);
+}
+
+function deltaClass(d) {
+  if (d >= 60) return "high";
+  if (d >= 30) return "mid";
+  return "low";
+}
+
+function cardHtml(food) {
+  const speed = SPEED_META[food.speed];
+  const portion = getLastPortion(food.id);
+  const carbsPortion = carbsFor(food, portion);
+  const glPortion = computeGL(food, portion);
+  const glPer100 = computeGL(food, 100);
+  const fav = isFavorite(food.id);
+  const records = getRecords(food.id).slice().sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+  const query = state.query;
+  return `
+    <article class="food-card" data-food-id="${escapeHtml(food.id)}">
+      <div class="card-head">
+        <div class="card-title">
+          <h2>${highlight(food.zh, query)}</h2>
+          <p>${highlight(food.en, query)}</p>
+        </div>
+        <div class="card-head-actions">
+          <button type="button" class="fav-btn ${fav ? "on" : ""}" data-fav-id="${escapeHtml(food.id)}" aria-pressed="${fav}" title="收藏">${fav ? "★" : "☆"}</button>
+          <span class="speed-label ${speed.className}">${speed.text}</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="macro-grid">
+          <div class="metric">
+            <strong>${food.carbs.toFixed(1)}</strong>
+            <span>碳水 g / 100g</span>
+          </div>
+          <div class="metric">
+            <strong>${escapeHtml(food.giDisplay)}</strong>
+            <span>GI 參考</span>
+          </div>
+          <div class="metric">
+            <strong>${glPer100.toFixed(1)}</strong>
+            <span>GL / 100g</span>
+          </div>
+          <div class="metric speed-metric ${speed.className}">
+            <strong>${speed.text}</strong>
+            <span>${speed.detail}</span>
+          </div>
+        </div>
+
+        <div class="calculator">
+          <label class="calc-input">
+            <span>實際吃幾 g</span>
+            <input type="number" inputmode="numeric" min="0" step="10" value="${portion}" data-portion-id="${escapeHtml(food.id)}" />
+          </label>
+          <div class="calc-result">
+            <div><span>實際碳水</span><strong data-calc-carbs="${escapeHtml(food.id)}">${carbsPortion.toFixed(1)}</strong> g</div>
+            <div><span>實際 GL</span><strong data-calc-gl="${escapeHtml(food.id)}">${glPortion.toFixed(1)}</strong></div>
+          </div>
+        </div>
+
+        <p class="note">${highlight(food.note, query)}</p>
+
+        <details class="experience-note">
+          <summary>飲食筆記</summary>
+          <textarea
+            rows="2"
+            data-experience-id="${escapeHtml(food.id)}"
+            placeholder="例：半碗還可以、飯後偏高、配菜一起吃比較穩"
+          >${escapeHtml(getNote(food.id))}</textarea>
+        </details>
+
+        <details class="record-form-wrap">
+          <summary>新增血糖紀錄</summary>
+          <form class="record-form" data-record-form="${escapeHtml(food.id)}">
+            <label>
+              <span>日期</span>
+              <input type="date" name="date" value="${todayIso()}" required />
+            </label>
+            <label>
+              <span>用餐時段</span>
+              <select name="meal">
+                <option value="">未指定</option>
+                <option value="breakfast">早餐</option>
+                <option value="lunch">午餐</option>
+                <option value="dinner">晚餐</option>
+                <option value="snack">點心</option>
+                <option value="late">消夜</option>
+              </select>
+            </label>
+            <label>
+              <span>份量 (g)</span>
+              <input type="number" inputmode="numeric" min="0" step="10" name="grams" value="${portion}" />
+            </label>
+            <label>
+              <span>餐前血糖</span>
+              <input type="number" inputmode="numeric" min="0" step="1" name="pre" placeholder="mg/dL" />
+            </label>
+            <label>
+              <span>餐後血糖</span>
+              <input type="number" inputmode="numeric" min="0" step="1" name="post" placeholder="mg/dL" />
+            </label>
+            <label class="full">
+              <span>備註</span>
+              <input type="text" name="comment" placeholder="搭配什麼、運動、睡眠..." />
+            </label>
+            <button type="submit">儲存紀錄</button>
+          </form>
+        </details>
+
+        ${records.length ? `
+        <details class="records-list">
+          <summary>已記錄 ${records.length} 筆</summary>
+          ${records.map((r) => recordRowHtml(food, r)).join("")}
+        </details>` : ""}
+
+        <div class="source-line">
+          <span>${escapeHtml(food.carbSource)}</span>
+          <span>${escapeHtml(food.giSource)}</span>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function recordRowHtml(food, r) {
+  const carbs = carbsFor(food, r.grams);
+  const gl = computeGL(food, r.grams);
+  const meal = MEAL_LABELS[r.meal || ""] || "未指定";
+  const hasGlucose = (r.pre != null && r.pre !== "") || (r.post != null && r.post !== "");
+  const showDelta = r.pre && r.post;
+  const delta = (Number(r.post) || 0) - (Number(r.pre) || 0);
+  return `
+    <div class="record-row">
+      <div class="record-meta">
+        <strong>${escapeHtml(r.date || "")}</strong>
+        <span class="meal-tag">${escapeHtml(meal)}</span>
+        <span>${escapeHtml(r.grams || 0)} g · 碳水 ${carbs.toFixed(1)} g · GL ${gl.toFixed(1)}</span>
+      </div>
+      ${hasGlucose ? `<div class="record-glucose">血糖 ${r.pre || "?"} → ${r.post || "?"} ${showDelta ? `<span class="delta ${deltaClass(delta)}">${delta >= 0 ? "+" : ""}${delta}</span>` : ""}</div>` : ""}
+      ${r.comment ? `<div class="record-comment">${escapeHtml(r.comment)}</div>` : ""}
+      <div class="record-actions">
+        <button type="button" class="link-btn" data-action="delete-record" data-food-id="${escapeHtml(food.id)}" data-record-id="${escapeHtml(r.id)}">刪除</button>
+      </div>
+    </div>
+  `;
 }
 
 function renderCards(foods) {
-  els.cards.innerHTML = foods.map((food) => {
-    const speed = SPEED_META[food.speed];
-    return `
-      <article class="food-card">
-        <div class="card-head">
-          <div class="card-title">
-            <h2>${escapeHtml(food.zh)}</h2>
-            <p>${escapeHtml(food.en)}</p>
-          </div>
-          <span class="speed-label ${speed.className}">${speed.text}</span>
-        </div>
-        <div class="card-body">
-          <div class="macro-grid">
-            <div class="metric">
-              <strong>${food.carbs.toFixed(1)}</strong>
-              <span>碳水 g/100g</span>
-            </div>
-            <div class="metric">
-              <strong>${escapeHtml(food.giDisplay)}</strong>
-              <span>GI 參考</span>
-            </div>
-          </div>
-          <p class="speed-text">${speed.detail} · 升糖${speed.text}</p>
-          <p class="note">${escapeHtml(food.note)}</p>
-          <label class="experience-note">
-            <span>飲食經驗</span>
-            <textarea
-              rows="2"
-              data-experience-id="${escapeHtml(food.id)}"
-              placeholder="例：半碗還可以、飯後偏高、配菜一起吃比較穩"
-            >${escapeHtml(getExperienceNote(food.id))}</textarea>
-          </label>
-          <div class="source-line">
-            <span>${escapeHtml(food.carbSource)}</span>
-            <span>${escapeHtml(food.giSource)}</span>
-          </div>
-        </div>
-      </article>
-    `;
-  }).join("");
+  els.cards.innerHTML = foods.map(cardHtml).join("");
 }
 
 function renderTable(foods) {
+  const query = state.query;
   els.table.innerHTML = foods.map((food) => {
     const speed = SPEED_META[food.speed];
+    const gl = computeGL(food, 100);
+    const fav = isFavorite(food.id);
+    const recs = getRecords(food.id).length;
     return `
       <tr>
+        <td><button type="button" class="fav-btn ${fav ? "on" : ""}" data-fav-id="${escapeHtml(food.id)}">${fav ? "★" : "☆"}</button></td>
         <td class="food-name-cell">
-          <strong>${escapeHtml(food.zh)}</strong>
-          <span>${escapeHtml(food.en)}</span>
+          <strong>${highlight(food.zh, query)}</strong>
+          <span>${highlight(food.en, query)}</span>
         </td>
         <td>${escapeHtml(food.category)}</td>
         <td>${food.carbs.toFixed(1)} g</td>
         <td>${escapeHtml(food.giDisplay)}</td>
+        <td>${gl.toFixed(1)}</td>
         <td><span class="speed-label ${speed.className}">${speed.text}</span></td>
-        <td class="experience-cell">${escapeHtml(getExperienceNote(food.id) || "尚未記錄")}</td>
+        <td>${recs > 0 ? `<span class="rec-count">${recs}</span>` : ""}</td>
         <td>${escapeHtml(food.note)}</td>
       </tr>
     `;
   }).join("");
 }
 
+function renderDiary() {
+  const all = allRecordsFlat().sort((a, b) => (b.date || "").localeCompare(a.date || "") || (b.createdAt || 0) - (a.createdAt || 0));
+  const total = all.length;
+  const cutoff = new Date(); cutoff.setDate(cutoff.getDate() - 7);
+  const last7 = all.filter((r) => r.date && new Date(r.date) >= cutoff).length;
+  const withGlucose = all.filter((r) => r.pre && r.post);
+  const avgDelta = withGlucose.length
+    ? Math.round(withGlucose.reduce((s, r) => s + (Number(r.post) - Number(r.pre)), 0) / withGlucose.length)
+    : null;
+
+  if (total === 0) {
+    els.diary.innerHTML = `
+      <div class="diary-header">
+        <h2>我的血糖紀錄</h2>
+        <p class="muted">在任何食物卡片展開「新增血糖紀錄」就能開始記錄。</p>
+      </div>
+    `;
+    return;
+  }
+
+  const byDate = {};
+  for (const r of all) {
+    const key = r.date || "未指定日期";
+    (byDate[key] = byDate[key] || []).push(r);
+  }
+  const dates = Object.keys(byDate).sort((a, b) => b.localeCompare(a));
+
+  els.diary.innerHTML = `
+    <div class="diary-header">
+      <h2>我的血糖紀錄</h2>
+      <div class="diary-stats">
+        <div><strong>${total}</strong><span>總筆數</span></div>
+        <div><strong>${last7}</strong><span>最近 7 天</span></div>
+        <div><strong>${avgDelta == null ? "—" : (avgDelta >= 0 ? "+" : "") + avgDelta}</strong><span>平均餐後 Δ</span></div>
+      </div>
+    </div>
+    ${dates.map((date) => `
+      <div class="diary-day">
+        <h3>${escapeHtml(date)}</h3>
+        ${byDate[date].map((r) => diaryEntryHtml(r)).join("")}
+      </div>
+    `).join("")}
+  `;
+}
+
+function diaryEntryHtml(r) {
+  const food = FOOD_BY_ID[r.foodId];
+  if (!food) return "";
+  const carbs = carbsFor(food, r.grams);
+  const gl = computeGL(food, r.grams);
+  const meal = MEAL_LABELS[r.meal || ""] || "未指定";
+  const speed = SPEED_META[food.speed];
+  const showDelta = r.pre && r.post;
+  const delta = (Number(r.post) || 0) - (Number(r.pre) || 0);
+  const hasGlucose = (r.pre != null && r.pre !== "") || (r.post != null && r.post !== "");
+  return `
+    <article class="diary-entry">
+      <div class="diary-entry-head">
+        <div class="diary-entry-title">
+          <strong>${escapeHtml(food.zh)}</strong>
+          <span class="meal-tag">${escapeHtml(meal)}</span>
+          <span class="speed-label ${speed.className}">${speed.text}</span>
+        </div>
+        <button type="button" class="link-btn" data-action="delete-record" data-food-id="${escapeHtml(food.id)}" data-record-id="${escapeHtml(r.id)}">刪除</button>
+      </div>
+      <div class="diary-entry-body">
+        <div>${escapeHtml(r.grams || 0)} g · 碳水 ${carbs.toFixed(1)} g · GL ${gl.toFixed(1)}</div>
+        ${hasGlucose ? `<div>血糖 ${r.pre || "?"} → ${r.post || "?"} ${showDelta ? `<span class="delta ${deltaClass(delta)}">${delta >= 0 ? "+" : ""}${delta}</span>` : ""}</div>` : ""}
+        ${r.comment ? `<div class="muted">${escapeHtml(r.comment)}</div>` : ""}
+      </div>
+    </article>
+  `;
+}
+
+function renderTools() {
+  const theme = data.settings.theme || "auto";
+  const recordTotal = Object.values(data.records).reduce((s, l) => s + l.length, 0);
+  const noteCount = Object.keys(data.notes).filter((k) => data.notes[k]).length;
+
+  const speedStats = ["slow", "medium", "fast"].map((sp) => {
+    const recs = allRecordsFlat().filter((r) => FOOD_BY_ID[r.foodId]?.speed === sp && r.pre && r.post);
+    const avg = recs.length
+      ? Math.round(recs.reduce((s, r) => s + (Number(r.post) - Number(r.pre)), 0) / recs.length)
+      : null;
+    return { sp, count: recs.length, avg };
+  });
+
+  els.tools.innerHTML = `
+    <section class="tools-block">
+      <h2>主題</h2>
+      <div class="theme-options">
+        <label><input type="radio" name="theme" value="auto" ${theme === "auto" ? "checked" : ""} /> 自動 (跟隨系統)</label>
+        <label><input type="radio" name="theme" value="light" ${theme === "light" ? "checked" : ""} /> 亮色</label>
+        <label><input type="radio" name="theme" value="dark" ${theme === "dark" ? "checked" : ""} /> 暗色</label>
+      </div>
+    </section>
+
+    <section class="tools-block">
+      <h2>備份 / 還原</h2>
+      <p class="muted">所有資料只存在你的瀏覽器 localStorage，定期匯出可避免清快取時遺失。</p>
+      <div class="btn-row">
+        <button type="button" data-action="export">匯出我的資料</button>
+        <button type="button" data-action="import">匯入備份</button>
+        <button type="button" class="danger" data-action="clear-all">清除所有資料</button>
+      </div>
+    </section>
+
+    <section class="tools-block">
+      <h2>統計</h2>
+      <div class="stats-grid">
+        <div><strong>${data.favorites.length}</strong><span>收藏食物</span></div>
+        <div><strong>${recordTotal}</strong><span>血糖紀錄</span></div>
+        <div><strong>${noteCount}</strong><span>飲食筆記</span></div>
+      </div>
+      <h3 class="sub">依升糖速度看餐後 Δ 平均</h3>
+      <div class="stats-grid">
+        ${speedStats.map((s) => `
+          <div>
+            <strong>${s.avg == null ? "—" : (s.avg >= 0 ? "+" : "") + s.avg}</strong>
+            <span><span class="speed-label ${s.sp}">${SPEED_META[s.sp].text}</span> · ${s.count} 筆</span>
+          </div>
+        `).join("")}
+      </div>
+    </section>
+
+    <section class="tools-block">
+      <h2>關於</h2>
+      <p class="muted">這是個人離線使用的血糖追蹤工具。可加到主畫面當 App 用 (PWA)，沒有網路也能查詢與紀錄。</p>
+      <p class="muted">GI 與碳水值僅供參考，實際血糖反應因人而異，請依醫療專業建議調整飲食。</p>
+    </section>
+  `;
+}
+
 function render() {
   const foods = getFilteredFoods();
   renderSummary(foods);
-  renderCards(foods);
-  renderTable(foods);
-  els.empty.classList.toggle("hidden", foods.length > 0);
-  els.cards.classList.toggle("hidden", state.view !== "cards" || foods.length === 0);
-  els.tableWrap.classList.toggle("hidden", state.view !== "table" || foods.length === 0);
+
+  const empty = foods.length === 0 && (state.view === "cards" || state.view === "table");
+  els.empty.classList.toggle("hidden", !empty);
+
+  els.cards.classList.toggle("hidden", state.view !== "cards" || empty);
+  els.tableWrap.classList.toggle("hidden", state.view !== "table" || empty);
+  els.diary.classList.toggle("hidden", state.view !== "diary");
+  els.tools.classList.toggle("hidden", state.view !== "tools");
+
+  if (state.view === "cards") renderCards(foods);
+  else if (state.view === "table") renderTable(foods);
+  else if (state.view === "diary") renderDiary();
+  else if (state.view === "tools") renderTools();
 }
 
 function setActiveButtons(buttons, attr, value) {
-  buttons.forEach((button) => {
-    button.classList.toggle("active", button.dataset[attr] === value);
-  });
+  buttons.forEach((b) => b.classList.toggle("active", b.dataset[attr] === value));
 }
 
+let searchDebounce;
 function bindEvents() {
-  ["input", "search", "change"].forEach((eventName) => {
-    els.search.addEventListener(eventName, (event) => {
-      state.query = event.target.value;
+  els.search.addEventListener("input", (e) => {
+    const v = e.target.value;
+    clearTimeout(searchDebounce);
+    searchDebounce = setTimeout(() => {
+      state.query = v;
       render();
-    });
+    }, 120);
   });
 
-  els.category.addEventListener("change", (event) => {
-    state.category = event.target.value;
+  els.category.addEventListener("change", (e) => {
+    state.category = e.target.value;
     render();
   });
 
-  els.sort.addEventListener("change", (event) => {
-    state.sort = event.target.value;
+  els.sort.addEventListener("change", (e) => {
+    state.sort = e.target.value;
     render();
   });
 
-  els.speedTabs.forEach((button) => {
-    button.addEventListener("click", () => {
-      state.speed = button.dataset.speed;
+  els.speedTabs.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      state.speed = btn.dataset.speed;
       setActiveButtons(els.speedTabs, "speed", state.speed);
       render();
     });
   });
 
-  els.viewTabs.forEach((button) => {
-    button.addEventListener("click", () => {
-      state.view = button.dataset.view;
+  els.viewTabs.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      state.view = btn.dataset.view;
       setActiveButtons(els.viewTabs, "view", state.view);
       render();
     });
   });
 
-  els.cards.addEventListener("input", (event) => {
-    const field = event.target;
-    if (!field.matches("[data-experience-id]")) return;
-    setExperienceNote(field.dataset.experienceId, field.value);
+  els.favOnlyBtn.addEventListener("click", () => {
+    state.favOnly = !state.favOnly;
+    els.favOnlyBtn.setAttribute("aria-pressed", String(state.favOnly));
+    els.favOnlyBtn.classList.toggle("on", state.favOnly);
+    render();
+  });
+
+  document.body.addEventListener("input", (e) => {
+    const t = e.target;
+    if (t.matches("[data-experience-id]")) {
+      setNote(t.dataset.experienceId, t.value);
+      return;
+    }
+    if (t.matches("[data-portion-id]")) {
+      const id = t.dataset.portionId;
+      const g = Number(t.value) || 0;
+      const food = FOOD_BY_ID[id];
+      if (!food) return;
+      setLastPortion(id, g);
+      const cEl = document.querySelector(`[data-calc-carbs="${CSS.escape(id)}"]`);
+      const gEl = document.querySelector(`[data-calc-gl="${CSS.escape(id)}"]`);
+      if (cEl) cEl.textContent = carbsFor(food, g).toFixed(1);
+      if (gEl) gEl.textContent = computeGL(food, g).toFixed(1);
+    }
+  });
+
+  document.body.addEventListener("click", (e) => {
+    const t = e.target.closest("[data-fav-id], [data-action]");
+    if (!t) return;
+    if (t.dataset.favId) {
+      toggleFavorite(t.dataset.favId);
+      render();
+      return;
+    }
+    const action = t.dataset.action;
+    if (action === "delete-record") {
+      if (confirm("確定刪除這筆紀錄？")) {
+        deleteRecord(t.dataset.foodId, t.dataset.recordId);
+        render();
+      }
+    } else if (action === "export") {
+      exportData();
+    } else if (action === "import") {
+      els.importFile.click();
+    } else if (action === "clear-all") {
+      if (confirm("會清除所有收藏、筆記、紀錄、設定。確定？")) {
+        data = defaultData();
+        saveData();
+        applyTheme();
+        render();
+      }
+    }
+  });
+
+  document.body.addEventListener("change", (e) => {
+    if (e.target.name === "theme" && e.target.matches("input[type=radio]")) {
+      setTheme(e.target.value);
+    }
+  });
+
+  document.body.addEventListener("submit", (e) => {
+    if (!e.target.matches("[data-record-form]")) return;
+    e.preventDefault();
+    const foodId = e.target.dataset.recordForm;
+    const fd = new FormData(e.target);
+    addRecord(foodId, {
+      date: fd.get("date") || todayIso(),
+      meal: fd.get("meal") || "",
+      grams: Number(fd.get("grams")) || 0,
+      pre: fd.get("pre") ? Number(fd.get("pre")) : null,
+      post: fd.get("post") ? Number(fd.get("post")) : null,
+      comment: String(fd.get("comment") || "").trim(),
+    });
+    render();
+  });
+
+  els.importFile.addEventListener("change", async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    try {
+      const text = await file.text();
+      const imported = JSON.parse(text);
+      if (!imported || typeof imported !== "object") throw new Error("檔案格式無效");
+      data = deepMerge(defaultData(), imported);
+      saveData();
+      applyTheme();
+      render();
+      alert("匯入成功！");
+    } catch (err) {
+      alert("匯入失敗：" + err.message);
+    } finally {
+      els.importFile.value = "";
+    }
   });
 }
 
+function exportData() {
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `glucose-tracker-${todayIso()}.json`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 100);
+}
+
+function registerSW() {
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./sw.js").catch((e) => console.warn("SW failed", e));
+    });
+  }
+}
+
+applyTheme();
 renderCategoryOptions();
 bindEvents();
 render();
+registerSW();

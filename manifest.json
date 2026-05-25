@@ -1,0 +1,20 @@
+{
+  "name": "主食碳水與血糖紀錄",
+  "short_name": "血糖紀錄",
+  "description": "離線可用的常見主食碳水查詢、份量計算與血糖紀錄工具",
+  "lang": "zh-Hant",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f6f7f4",
+  "theme_color": "#1f8a5f",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
